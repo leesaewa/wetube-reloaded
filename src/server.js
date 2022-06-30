@@ -1,23 +1,33 @@
 import express from "express";
+import morgan from "morgan";
 
 const PORT = 4000;
 
 const app = express(); //create express application
+const logger = morgan("dev");
+app.use(logger);
 
-//get response
-//req, res의 이름은 마음대로 지어도 됨. 하지만 반드시 두 개의 arguments가 필요
-app.get("/", (req, res) => {
-  return res.send("<h1>Home</h1>");
-});
-app.get("/about", (req, res) => {
-  return res.send("<h1>About</h1>");
-});
-app.get("/contact", (req, res) => {
-  return res.send("<h1>Contact</h1>");
-});
-app.get("/login", (req, res) => {
-  return res.send("<h1>Login</h1>");
-});
+const globalRouter = express.Router();
+
+const handleHome = (req, res) => res.send("home");
+
+globalRouter.get("/", handleHome);
+
+const userRouter = express.Router();
+
+const handleEditUser = (req, res) => res.send("edit user");
+
+userRouter.get("/edit", handleEditUser);
+
+const videoRouter = express.Router();
+
+const handleWatchVideo = (req, res) => res.send("watch video");
+
+videoRouter.get("/watch", handleWatchVideo);
+
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
 
 //외부 접속
 const handleListening = () =>
