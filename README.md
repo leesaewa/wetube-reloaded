@@ -1,5 +1,17 @@
 # Wetube Reloaded
 
+## Log
+
+---
+
+#### 220703
+
+- mongoDB 추가
+- 가짜 array database 추가
+- server -> init.js로 수정하고 import db 옮김.
+
+---
+
 ### Global Router
 
 / -> Home

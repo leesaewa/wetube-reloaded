@@ -1,36 +1,33 @@
-export const trending = (req, res) => {
-  const videos = [
-    {
-      title: "First Video",
-      rating: 5,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 59,
-      id: 1,
-    },
-    {
-      title: "Second Video",
-      rating: 2,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 59,
-      id: 1,
-    },
-    {
-      title: "Third Video",
-      rating: 1,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 59,
-      id: 1,
-    },
-  ];
+import Video from "../models/Video";
+
+export const home = async (req, res) => {
+  const videos = await Video.find({});
   return res.render("home", { pageTitle: "Home", videos });
 };
-export const see = (req, res) => res.render("watch");
-export const edit = (req, res) => res.render("edit");
-export const search = (req, res) => res.send("search");
-export const upload = (req, res) => res.send("upload");
-export const deleteVideo = (req, res) => {
-  return res.send("delete Video");
+
+export const watch = (req, res) => {
+  const { id } = req.params;
+  //const video = videos[id - 1];
+  return res.render("watch", { pageTitle: `Watching ` });
+};
+
+//화면에 보여주는 것
+export const getEdit = (req, res) => {
+  const { id } = req.params;
+  //const video = videos[id - 1];
+  return res.render("edit", { pageTitle: `Editing` });
+};
+
+//변경사항을 저장해줌
+export const postEdit = (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+  return res.redirect(`/videos/${id}`);
+};
+
+export const getUpload = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload" });
+};
+export const postUpload = (req, res) => {
+  return res.redirect("/");
 };
