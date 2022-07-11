@@ -4,6 +4,12 @@
 
 ---
 
+#### 220711
+
+- mongoDB schema 수정
+- video upload, edit 추가
+- 그 외 코드 정리
+
 #### 220703
 
 - mongoDB 추가
