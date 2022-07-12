@@ -4,6 +4,10 @@
 
 ---
 
+#### 220712
+
+- video delete, search 추가
+
 #### 220711
 
 - mongoDB schema 수정
