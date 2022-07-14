@@ -1,8 +1,20 @@
 # Wetube Reloaded
 
+<a href="https://github.com/leesaewa/wetube_TIL">Study log</a>
+
 ## Log
 
 ---
+
+#### 220714
+
+- **middlewares.js** 추가
+- Create account
+- password hasshing
+- bcrypt.js
+- status code
+- login 추가
+- session, cookie
 
 #### 220712
 
