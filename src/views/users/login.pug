@@ -1,4 +1,4 @@
-extends base.pug
+extends ../base.pug
 
 block content
   if errorMessage
@@ -8,7 +8,7 @@ block content
     input(name="password", type="password", required, placeholder="password")
     input(type="submit", value="Login")
     br
-    a(href="/users/github/start") Continue with GitHub &rarr;
+    a(href="/users/github/start") Continue with Github &rarr;
 
   hr
   div 

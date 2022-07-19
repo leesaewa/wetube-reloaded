@@ -7,7 +7,6 @@ html(lang="ko")
   body 
     header 
       h1=pageTitle
-      h2 hi #{sexy}
 
       nav 
         ul 
@@ -15,9 +14,11 @@ html(lang="ko")
             a(href="/") Home
           if loggedIn
             li 
-              a(href="/users/logout") Logout 
+              a(href="/videos/upload") Upload Video
+            li
+              a(href="/users/edit") Edit Profile
             li 
-              a(href="/my-profile") #{loggedInUser.name}의 Profile 
+              a(href="/users/logout") Logout 
           else
             li 
               a(href="/join") Join
@@ -25,8 +26,7 @@ html(lang="ko")
               a(href="/login") Login
           li
             a(href="/search") Search
-          li 
-            a(href="/videos/upload") Upload Video
+          
             
 
     main

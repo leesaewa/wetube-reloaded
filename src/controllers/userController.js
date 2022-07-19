@@ -3,25 +3,26 @@ import fetch from "cross-fetch";
 import bcrypt from "bcrypt";
 
 export const getJoin = (req, res) =>
-  res.render("join", { pageTitle: "Create Account" });
+  res.render("users/join", { pageTitle: "Create Account" });
 export const postJoin = async (req, res) => {
   const { name, username, email, password, password2, location } = req.body;
   const pageTitle = "Join";
   if (password !== password2) {
-    return res.status(400).render("join", {
+    return res.status(400).render("users/join", {
       pageTitle,
       errorMessage: "Password confirmation does not match.",
     });
   }
   const exists = await User.exists({ $or: [{ username }, { email }] });
   if (exists) {
-    return res.status(400).render("join", {
+    return res.status(400).render("users/join", {
       pageTitle,
       errorMessage: "This username/email is already taken",
     });
   }
 
   try {
+    console.log("join start");
     await User.create({
       name,
       username,
@@ -29,9 +30,12 @@ export const postJoin = async (req, res) => {
       password,
       location,
     });
+    console.log("join complete");
     return res.redirect("/login");
   } catch (error) {
-    return res.status(400).render("join", {
+    console.log("join err");
+    console.log(error);
+    return res.status(400).render("users/join", {
       pageTitle: "Create Account",
       errorMessage: error._message,
     });
@@ -39,7 +43,7 @@ export const postJoin = async (req, res) => {
 };
 
 export const getLogin = (req, res) =>
-  res.render("login", { pageTitle: "Login" });
+  res.render("users/login", { pageTitle: "Login" });
 
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -47,14 +51,14 @@ export const postLogin = async (req, res) => {
   //유저가 존재하는지 체크
   const user = await User.findOne({ username, socialOnly: false });
   if (!user) {
-    return res.status(400).render("login", {
+    return res.status(400).render("users/login", {
       pageTitle,
       errorMessage: "An account with this username does not exists.",
     });
   }
   const ok = await bcrypt.compare(password, user.password);
   if (!ok) {
-    return res.status(400).render("login", {
+    return res.status(400).render("users/login", {
       pageTitle,
       errorMessage: "Wrong password",
     });
@@ -67,6 +71,7 @@ export const postLogin = async (req, res) => {
 //
 // github login
 //
+
 export const startGithubLogin = (req, res) => {
   const baseUrl = "https://github.com/login/oauth/authorize";
   const config = {
@@ -119,13 +124,7 @@ export const finishGithubLogin = async (req, res) => {
       return res.redirect("/login");
     }
     let user = await User.findOne({ email: emailObj.email });
-    console.log(user);
-    console.log("check_0");
-    // 찾은 email과 같은 email을 가진 user가 DB에 있다면, 그 user를 login 시킨다
-    // 찾은 email과 같은 email을 가진 user가 DB에 없다면, 그 user의 계정을 생성한다 (join)
     if (!user) {
-      console.log("check_1");
-      console.log(user);
       user = await User.create({
         avatarUrl: userData.avatar_url,
         name: userData.name,
@@ -135,7 +134,6 @@ export const finishGithubLogin = async (req, res) => {
         socialOnly: true,
         location: userData.location,
       });
-      console.log("check_2");
     }
     req.session.loggedIn = true;
     req.session.user = user;
@@ -154,8 +152,109 @@ export const logout = (req, res) => {
 };
 
 //
+// edit profile
 //
-//
-export const edit = (req, res) => res.send("edit user");
+export const getEdit = (req, res) => {
+  res.render("edit-profile", { pageTitle: "Edit profile" });
+};
+export const postEdit = async (req, res) => {
+  const pageTitle = "Edit profile";
 
+  //로그인 된 유저 아이디 찾기
+  const {
+    session: {
+      user: { _id, username: findUsername, email: findEmail, socialOnly },
+    },
+    body: { name, email, username, location },
+  } = req;
+
+  //email 중복체크
+  if (email !== findEmail) {
+    const checkEmail = await User.exists({ email });
+    if (checkEmail) {
+      return res.status(400).render("edit-profile", {
+        pageTitle,
+        errorMessage: "This email is exists.",
+      });
+    }
+  }
+
+  // username 중복체크
+  if (username !== findUsername) {
+    const checkUsername = await User.exists({ username });
+    if (checkUsername) {
+      return res.status(400).render("edit-profile", {
+        pageTitle,
+        errorMessage: "This username is exists.",
+      });
+    }
+  }
+
+  // social check
+  if (socialOnly && findEmail !== email) {
+    return res.status(400).render("edit-profile", {
+      pageTitle,
+      errorMessage: "This email is can't change.",
+    });
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+
+  req.session.user = updatedUser;
+  return res.redirect("/users/edit");
+};
+
+//
+// change password
+//
+
+export const getChangePassword = (req, res) => {
+  if (req.session.user.socialOnly === true) {
+    return res.redirect("/");
+  }
+  return res.render("users/change-password", { pageTitle: "Change password" });
+};
+export const postChangePassword = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { oldPass, newPass, newPass2 },
+  } = req;
+
+  const user = await User.findById(_id);
+  const ok = await bcrypt.compare(oldPass, user.password);
+  if (!ok) {
+    return res.status(400).render("users/change-password", {
+      pageTitle: "Change password",
+      errorMessage: "The current password is incorrect.",
+    });
+  }
+
+  if (newPass !== newPass2) {
+    return res.status(400).render("users/change-password", {
+      pageTitle: "Change password",
+      errorMessage: "The password does not match the confirmation.",
+    });
+  }
+
+  //새 비밀번호 hash하기
+  user.password = newPass;
+  await user.save();
+
+  return res.redirect("/users/logout");
+};
+
+//
+//
+//
 export const see = (req, res) => res.send("see user");

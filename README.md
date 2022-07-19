@@ -6,12 +6,24 @@
 
 ---
 
+#### 220719
+
+- 마이페이지(프로필 수정)
+- 미들웨어 추가
+- 비밀번호 수정 추가
+- **코드 챌린지** 이메일, 유저네임 중복체크해서 수정못하게 하기.
+  -> 추가로 깃허브로 로그인했을 때, 이메일 수정 못하게 함.
+- **문제 발생** join 가입이 안되고 `Error: E11000 duplicate key error collection: wetube.users index: githubId_1 dup key: { githubId: null } at MongoServerError.<anonymous>` 이런 에러가 뜰 때는 `db.dropDatabase()`로 db삭제 후, 다시 시도해보기
+
 #### 220716
 
 - session, cookie
 - `.env`파일 추가(보안)
-- 소셜 로그인(깃허브) 추가 // 계정없을 때 로그인 안됨. 다시 손 봐야 함.
 - 로그아웃 추가
+- 소셜 로그인(깃허브) 추가 // 계정없을 때 로그인 안됨. 다시 손 봐야 함.
+  **(220719 원인 파악 완료)** -> 깃허브 계정에 `name`을 설정 안했을 때, 아래의 에러가 발생함.
+  **`name`이 설정 안 됐을 때 `anonymous`로 로그인 되도록 수정할 것.**
+  <img src="https://user-images.githubusercontent.com/97646713/179736225-cd6534fb-4fb2-45ab-a14b-99af160dd7fb.png" width="100%">
 
 #### 220714
 
