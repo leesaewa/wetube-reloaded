@@ -163,10 +163,18 @@ export const postEdit = async (req, res) => {
   //로그인 된 유저 아이디 찾기
   const {
     session: {
-      user: { _id, username: findUsername, email: findEmail, socialOnly },
+      user: {
+        _id,
+        username: findUsername,
+        email: findEmail,
+        socialOnly,
+        avatarUrl,
+      },
     },
     body: { name, email, username, location },
+    file,
   } = req;
+  console.log(file);
 
   //email 중복체크
   if (email !== findEmail) {
@@ -201,6 +209,7 @@ export const postEdit = async (req, res) => {
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
+      avatarUrl: file ? file.path : avatarUrl,
       name,
       email,
       username,
