@@ -31,7 +31,7 @@ app.use(localsMiddleware);
 
 //user에게 폴더 공개
 app.use("/uploads", express.static("uploads"));
-app.use("/assets", express.static("assets"));
+app.use("/static", express.static("assets"));
 
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);

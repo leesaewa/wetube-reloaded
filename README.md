@@ -6,6 +6,12 @@
 
 ---
 
+#### 220721
+
+- webpack 추가
+- edit profile
+- bug fix
+
 #### 220720
 
 - file upload 기능 추가
