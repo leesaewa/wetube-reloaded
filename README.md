@@ -11,6 +11,7 @@
 - webpack 추가
 - edit profile
 - bug fix
+- scss 추가
 
 #### 220720
 
