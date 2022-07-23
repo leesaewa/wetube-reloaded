@@ -1,5 +1,5 @@
 header 
-  h1=pageTitle
+  a(href="/") #{pageTitle}
   
   nav 
     ul 
@@ -16,14 +16,23 @@ header
         li
           a(href="/users/edit") Edit Profile
         li 
-          a(href="/users/logout") Logout 
+          a(href="/users/logout") Logout
+        li
+          a(href=`/users/${loggedInUser._id}`)
+            if loggedInUser.avatarUrl === ""
+              span 😀
+            else
+              img.header__avatar(src="/" + loggedInUser.avatarUrl)
       else
         li 
           a(href="/join") Join
         li 
           a(href="/login") Login
-      
-      //- if loggedInUser.socialOnly
-      //-   img(src=user.avatarUrl).avatar
-      //- else
-      //-   img(src="/" + user.avatarUrl).avatar
+          
+    div.hamburger
+      span 
+      span 
+      span
+
+block scripts 
+  script(src="/static/js/main.js")

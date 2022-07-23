@@ -1,0 +1,29 @@
+// flexbox
+@mixin flexBox($flexJC: center, $flexAC: center, $flexW: nowrap) {
+  display: flex;
+  flex-wrap: $flexW;
+  justify-content: $flexJC;
+  align-items: $flexAC;
+}
+
+// responsive
+@mixin mobile {
+  @media screen and (max-width: #{$maxIphone}) {
+    @content;
+  }
+}
+@mixin smallTablet {
+  @media screen and (max-width: #{$minTablet}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: #{$maxTablet}) {
+    @content;
+  }
+}
+@mixin noteBook {
+  @media screen and (max-width: #{$maxNote}) {
+    @content;
+  }
+}

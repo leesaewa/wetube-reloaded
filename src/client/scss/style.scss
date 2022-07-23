@@ -2,11 +2,27 @@
 @import "./config/_variables";
 @import "./config/_reset.scss";
 @import "./config/_fonts.scss";
+@import "./config/_mixin.scss";
 
 // Components
+@import "./Components/common.scss";
+@import "./Components/header.scss";
 
 // Screen
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "YUniverse-L";
+  background: $black;
+  color: $white;
+}
+a {
+  color: $white;
+}
+
+img {
+  max-width: 100%;
 }
