@@ -8,6 +8,7 @@
 
 #### 220724
 
+- view API 추가
 - video controller scss 추가
 - video player time/timeline/fullscreen/키보드 단축키 추가
 
