@@ -14,15 +14,23 @@ window.onscroll = function () {
 };
 
 // nav
-const mobileNav = document.querySelector(".hamburger");
-const navContents = document.querySelector("nav");
+const loginBtn = document.querySelector(".login");
+const dropMenuCont = document.querySelector(".drop-menu");
+const overlay = document.querySelector(".overlay");
+const body = document.querySelector("body");
 
-mobileNav.addEventListener("click", () => {
-  navContents.classList.toggle("open");
-  mobileNav.classList.toggle("open");
-  // if (!navContents.classList.contains("open")) {
-  //   headerScroll.style.paddingBottom = "2rem";
-  // } else {
-  //   headerScroll.style.paddingBottom = "0";
-  // }
+loginBtn.addEventListener("click", () => {
+  dropMenuCont.classList.toggle("open");
+  loginBtn.classList.toggle("open");
+  overlay.classList.toggle("open");
+  body.style.overflow = "hidden";
+  if (!loginBtn.classList.contains("open")) {
+    body.style.overflow = "auto";
+  }
+});
+overlay.addEventListener("click", () => {
+  dropMenuCont.classList.remove("open");
+  loginBtn.classList.remove("open");
+  overlay.classList.remove("open");
+  body.style.overflow = "auto";
 });

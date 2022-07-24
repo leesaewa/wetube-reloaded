@@ -1,7 +1,7 @@
 extends base
 
 block content 
-  section#videoContainer.row(data-id=video._id)
+  section#videoContainer(data-id=video._id).row
     video(src="/" + video.fileUrl)
     div#videoControls.videoControls
       button#play.material-icons play_arrow
@@ -18,6 +18,9 @@ block content
       
       div 
         button#fullScreen.material-icons fullscreen
+    
+  div.cont
+    h2 #{pageTitle}
   
   //-
     div
