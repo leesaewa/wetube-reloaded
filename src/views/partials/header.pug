@@ -1,5 +1,6 @@
 header 
-  a(href="/") #{pageTitle}
+  h1 
+    a(href="/") #{pageTitle}
   
   nav 
     ul 
@@ -29,10 +30,9 @@ header
         li 
           a(href="/login") Login
           
-    div.hamburger
-      span 
-      span 
-      span
+  div.hamburger
+    span 
+    span 
+    span
 
-block scripts 
-  script(src="/static/js/main.js")
+script(src="/static/js/main.js")

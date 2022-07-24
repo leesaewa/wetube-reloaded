@@ -1,0 +1,45 @@
+#videoContainer {
+  background: $black;
+  position: relative;
+
+  video {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .videoControls {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background: #000;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    width: 95%;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr auto;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    &.showing {
+      opacity: 1;
+    }
+
+    button {
+      cursor: pointer;
+      color: $white;
+      background: none;
+      border: 0;
+    }
+
+    .controls_time {
+      #timeLine {
+        width: 100%;
+      }
+    }
+  }
+}

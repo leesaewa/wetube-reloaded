@@ -15,9 +15,14 @@ window.onscroll = function () {
 
 // nav
 const mobileNav = document.querySelector(".hamburger");
-const navContents = document.querySelector("nav ul");
+const navContents = document.querySelector("nav");
 
 mobileNav.addEventListener("click", () => {
   navContents.classList.toggle("open");
   mobileNav.classList.toggle("open");
+  // if (!navContents.classList.contains("open")) {
+  //   headerScroll.style.paddingBottom = "2rem";
+  // } else {
+  //   headerScroll.style.paddingBottom = "0";
+  // }
 });

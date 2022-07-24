@@ -6,6 +6,11 @@
 
 ---
 
+#### 220724
+
+- video controller scss 추가
+- video player time/timeline/fullscreen/키보드 단축키 추가
+
 #### 220723
 
 - 공통/헤더 scss 작업
