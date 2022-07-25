@@ -5,11 +5,11 @@
 @import "./config/_mixin.scss";
 
 // Components
-@import "./Components/common.scss";
 @import "./Components/header.scss";
 @import "./Components/videoPlayer.scss";
 
 // Screen
+@import "./screens/video.scss";
 
 * {
   box-sizing: border-box;
@@ -33,4 +33,31 @@ a:hover {
 
 img {
   max-width: 100%;
+}
+
+//
+// common
+//
+.row {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+main {
+  padding-top: 150px;
+}
+
+//
+// footer
+//
+footer {
+  padding: 2rem 0 4rem;
+  border-top: 1px solid $white;
 }

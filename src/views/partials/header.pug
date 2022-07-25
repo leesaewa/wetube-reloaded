@@ -6,23 +6,32 @@ header
   nav 
     ul.nav
       li
-        a(href="/search").material-icons search
+        a(href="/search")
+          i.material-icons search
         
       if loggedIn
         li.login
-          if loggedInUser.avatarUrl === ""
-            span 😀
-          else
+          if loggedInUser.avatarUrl
             img.header__avatar(src="/" + loggedInUser.avatarUrl)
-            span #{loggedInUser.name} 님.
-              i.material-icons expand_more
+            
+          else
+            p.header__avatar.no-img
+          span #{loggedInUser.name}
+            i.material-icons expand_more
+            
         li 
-          a(href="").material-icons notifications
+          a(href="")
+            i.material-icons notifications
+            | 
       else
         li 
-          a(href="/join").material-icons person_add
+          a(href="/join")
+            i.material-icons person_add
+            | Join
         li 
-          a(href="/login").material-icons login
+          a(href="/login")
+            i.material-icons login
+            | Login
           
     ul.drop-menu
       li 
@@ -46,4 +55,3 @@ header
   //-   span 
   //-   span
 div.overlay
-script(src="/static/js/main.js")

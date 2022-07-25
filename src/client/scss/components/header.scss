@@ -1,10 +1,15 @@
 header {
   @include flexBox($flexJC: space-between);
-  padding: 2rem 0;
+  padding: 1.6rem 0;
   width: 100%;
   position: fixed;
   transition: $easeFive;
   z-index: 99;
+  background-color: $mainColor;
+
+  &.scroll {
+    padding: 0.4rem 0;
+  }
 
   h1 {
     padding-left: 2rem;
@@ -20,6 +25,7 @@ header {
 
       li {
         border: 1px solid blue;
+        font-size: 1.2em;
 
         &:not(:last-child) {
           margin-right: 5px;
@@ -29,15 +35,35 @@ header {
           width: 40px;
           height: 40px;
           border-radius: 50%;
+
+          &.no-img {
+            background-color: $white;
+            position: relative;
+
+            &::before {
+              content: "No Data";
+              @include flexBox;
+              color: $black;
+              height: 100%;
+              text-align: center;
+              font-size: 13px;
+            }
+          }
+        }
+
+        i {
+          font-size: 1.2em;
+          transition: $easeFive;
         }
 
         &.login {
           cursor: pointer;
+          font-size: 1.4em;
+          @include flexBox;
 
           span {
-            i {
-              transition: $easeFive;
-            }
+            @include flexBox;
+            margin-left: 10px;
           }
 
           &.open {
@@ -45,6 +71,7 @@ header {
               i {
                 transition: $easeFive;
                 transform: rotate(-180deg);
+                margin-top: -3px;
               }
             }
           }
@@ -97,8 +124,6 @@ header {
       }
     }
   }
-
-  background: red;
 }
 
 .tests {

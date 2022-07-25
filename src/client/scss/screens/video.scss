@@ -1,0 +1,34 @@
+.video-grid {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  .video-mixin {
+    border: 1px solid $white;
+
+    .video-mixin_thumb {
+      background: $white;
+      width: 100%;
+      height: 140px;
+      border-radius: 10px;
+      margin-bottom: 1.4rem;
+    }
+
+    .video-mixin_data {
+      .video-mixin_title {
+      }
+      .video-mixin_meta {
+      }
+      .hashtag {
+        @include flexBox($flexW: wrap);
+        li {
+          border-radius: 50px;
+          background: $white;
+          color: $black;
+          padding: 5px 10px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

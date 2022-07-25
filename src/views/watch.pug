@@ -1,7 +1,7 @@
 extends base
 
 block content 
-  section#videoContainer(data-id=video._id).row
+  section#videoContainer(data-id=video._id)
     video(src="/" + video.fileUrl)
     div#videoControls.videoControls
       button#play.material-icons play_arrow
