@@ -21,6 +21,9 @@ block content
     
   div.cont
     h2 #{pageTitle}
+  if String(video.owner._id) === String(loggedInUser._id)
+      a(href=`${video.id}/edit`) Edit Video &rarr;
+      a(href=`${video.id}/delete`) Delete Video &rarr;
   
   //-
     div
@@ -30,9 +33,7 @@ block content
     div 
       small Uploaded by 
         a(href=`/users/${video.owner._id}`) #{video.owner.name}
-    if String(video.owner._id) === String(loggedInUser._id)
-      a(href=`${video.id}/edit`) Edit Video &rarr;
-      a(href=`${video.id}/delete`) Delete Video &rarr;
+    
 
 block scripts 
   script(src="/static/js/videoPlayer.js")

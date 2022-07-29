@@ -23,10 +23,13 @@ export const watch = async (req, res) => {
 
 //화면에 보여주는 것
 export const getEdit = async (req, res) => {
-  const { id } = req.params;
   const {
-    user: { _id },
-  } = req.session;
+    params: { id },
+    session: {
+      user: { _id },
+    },
+  } = req;
+
   const video = await Video.findById(id);
   if (!video) {
     //에러먼저 처리해주는 게 좋음.
@@ -41,26 +44,30 @@ export const getEdit = async (req, res) => {
 
 //변경사항을 저장해줌
 export const postEdit = async (req, res) => {
-  const { id } = req.params;
   const {
-    user: { _id },
-  } = req.session;
-  const { title, description, hashtags } = req.body;
+    params: { id },
+    body: { title, description, hashtags },
+    session: {
+      user: { _id },
+    },
+  } = req;
+
   const video = await Video.exists({ _id: id });
 
   if (!video) {
     return res.status(404).render("404", { pageTitle: "Video not found." });
   }
-
-  if (String(video.owner) !== String(_id)) {
-    return res.status(403).redirect("/");
-  }
+  // else if (String(video.owner) !== String(_id)) {
+  //   console.log("6");
+  //   return res.status(403).redirect("/");
+  // }
 
   await Video.findByIdAndUpdate(id, {
     title,
     description,
     hashtags: Video.formatHashtags(hashtags),
   });
+
   return res.redirect(`/videos/${id}`);
 };
 
@@ -69,16 +76,19 @@ export const getUpload = (req, res) => {
 };
 export const postUpload = async (req, res) => {
   const {
-    user: { _id },
-  } = req.session;
-  const { path: fileUrl } = req.file;
+    body: { title, description, hashtags },
+    files: { video, thumb },
+    session: {
+      user: { _id },
+    },
+  } = req;
 
-  const { title, description, hashtags } = req.body;
   try {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl,
+      fileUrl: Video.changePathFormula(video[0].path),
+      thumbUrl: Video.changePathFormula(thumb[0].path),
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
@@ -96,10 +106,13 @@ export const postUpload = async (req, res) => {
 
 //비디오 삭제
 export const deleteVideo = async (req, res) => {
-  const { id } = req.params;
   const {
-    user: { _id },
-  } = req.session;
+    params: { id },
+    session: {
+      user: { _id },
+    },
+  } = req;
+
   const video = await Video.findById(id);
   const user = await User.findById(_id);
 
