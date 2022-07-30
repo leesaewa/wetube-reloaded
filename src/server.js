@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import flash from "express-flash";
 
 // router import
 import rootRouter from "./routers/rootRouter";
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(flash());
 app.use(localsMiddleware);
 
 //user에게 폴더 공개
