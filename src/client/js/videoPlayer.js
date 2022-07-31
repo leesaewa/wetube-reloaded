@@ -28,17 +28,20 @@ video.volume = volumeValue;
 video.addEventListener("click", () => {
   handlePlayClick();
 });
-// space bar
+// shortcut
 window.addEventListener("keyup", (event) => {
   const { code } = event;
-  if (code === "Space") {
+  if (event.target === document.body && code === "Space") {
+    event.preventDefault();
     handlePlayClick();
-  }
-
-  if (code === "ArrowLeft") {
+  } else if (event.target === document.body && code === "ArrowLeft") {
     video.currentTime -= 10;
-  } else if (code === "ArrowRight") {
+  } else if (event.target === document.body && code === "ArrowRight") {
     video.currentTime += 10;
+  } else if (event.target === document.body && code === "KeyM") {
+    handleMute();
+  } else if (event.target === document.body && code === "KeyF") {
+    handleFullscreen();
   }
 });
 

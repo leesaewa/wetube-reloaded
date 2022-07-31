@@ -1,4 +1,5 @@
 import User from "../models/User";
+import Comment from "../models/Comment";
 import Video from "../models/Video";
 
 export const home = async (req, res) => {
@@ -10,7 +11,7 @@ export const home = async (req, res) => {
 
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id).populate("owner");
+  const video = await Video.findById(id).populate("owner").populate("comments");
   //const owner = await User.findById(video.owner);
   //console.log(video);
 
@@ -93,6 +94,7 @@ export const postUpload = async (req, res) => {
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
+
     const user = await User.findById(_id);
     user.videos.push(newVideo._id);
     user.save();
@@ -147,7 +149,7 @@ export const search = async (req, res) => {
 };
 
 //
-//
+// view
 //
 export const registerView = async (req, res) => {
   const { id } = req.params;
@@ -158,4 +160,29 @@ export const registerView = async (req, res) => {
   video.meta.views = video.meta.views + 1;
   await video.save();
   return res.sendStatus(200);
+};
+
+//
+// comment
+export const createComment = async (req, res) => {
+  const {
+    session: { user },
+    body: { text },
+    params: { id },
+  } = req;
+
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.sendStatus(404);
+  }
+
+  const comment = await Comment.create({
+    text,
+    owner: user._id,
+    video: id,
+  });
+
+  video.comments.push(comment._id);
+  video.save();
+  return res.sendStatus(201);
 };

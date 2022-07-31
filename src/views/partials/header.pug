@@ -11,11 +11,12 @@ header
         
       if loggedIn
         li.login
-          if loggedInUser.avatarUrl
-            img.header__avatar(src="/" + loggedInUser.avatarUrl)
+          if !loggedInUser.avatarUrl
+            p.header__avatar.no-img
             
           else
-            p.header__avatar.no-img
+            img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl).header__avatar
+
           span #{loggedInUser.name}
             i.material-icons expand_more
             

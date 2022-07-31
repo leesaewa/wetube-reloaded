@@ -9,6 +9,9 @@ const userSchema = new mongoose.Schema({
   password: { type: String },
   name: { type: String, required: true },
   location: String,
+  comments: [
+    { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Comment" },
+  ],
 
   //소유주는 여러 개의 비디오를 가질 수 있어서 배열(array)을 사용
   videos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }],
