@@ -15,7 +15,7 @@ header
             p.header__avatar.no-img
             
           else
-            img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl).header__avatar
+            img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin).header__avatar
 
           span #{loggedInUser.name}
             i.material-icons expand_more
