@@ -10,6 +10,12 @@
 
 // Screen
 @import "./screens/video.scss";
+@import "./screens/profile.scss";
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
 
 * {
   box-sizing: border-box;
@@ -39,15 +45,10 @@ img {
 // common
 //
 .row {
-  max-width: 1200px;
+  max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-}
-
-section {
-  max-width: 1600px;
-  margin: 0 auto;
 }
 
 main {

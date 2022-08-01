@@ -166,11 +166,13 @@ export const registerView = async (req, res) => {
 // comment
 export const createComment = async (req, res) => {
   const {
-    session: { user },
+    session: {
+      user: { _id: owner, name: commentOwner },
+    },
     body: { text },
     params: { id },
   } = req;
-
+  console.log(req.session);
   const video = await Video.findById(id);
   if (!video) {
     return res.sendStatus(404);
@@ -178,11 +180,13 @@ export const createComment = async (req, res) => {
 
   const comment = await Comment.create({
     text,
-    owner: user._id,
+    owner,
+    commentOwner,
     video: id,
   });
-
   video.comments.push(comment._id);
   video.save();
-  return res.sendStatus(201);
+  console.log(commentOwner);
+  console.log(comment._id);
+  return res.status(201).json({ newCommentId: comment._id });
 };

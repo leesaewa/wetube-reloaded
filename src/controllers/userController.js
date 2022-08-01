@@ -147,10 +147,10 @@ export const finishGithubLogin = async (req, res) => {
 // log out
 
 export const logout = (req, res) => {
-  req.session.user = null;
-  res.locals.loggedInUser = req.session.user;
+  // req.session.user = null;
+  // res.locals.loggedInUser = req.session.user;
   req.session.loggedIn = false;
-  req.flash("info", "Not authorized");
+  req.flash("info", "logout sussece");
   return res.redirect("/");
 };
 

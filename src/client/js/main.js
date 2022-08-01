@@ -20,15 +20,17 @@ const dropMenuCont = document.querySelector(".drop-menu");
 const overlay = document.querySelector(".overlay");
 const body = document.querySelector("body");
 
-loginBtn.addEventListener("click", () => {
-  dropMenuCont.classList.toggle("open");
-  loginBtn.classList.toggle("open");
-  overlay.classList.toggle("open");
-  body.style.overflow = "hidden";
-  if (!loginBtn.classList.contains("open")) {
-    body.style.overflow = "auto";
-  }
-});
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
+    dropMenuCont.classList.toggle("open");
+    loginBtn.classList.toggle("open");
+    overlay.classList.toggle("open");
+    body.style.overflow = "hidden";
+    if (!loginBtn.classList.contains("open")) {
+      body.style.overflow = "auto";
+    }
+  });
+}
 overlay.addEventListener("click", () => {
   dropMenuCont.classList.remove("open");
   loginBtn.classList.remove("open");
