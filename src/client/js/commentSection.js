@@ -4,51 +4,79 @@ const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 const deleteBtns = document.querySelectorAll(".delete-comment");
 
+//
 //fake comment
-const addComment = (text, id, avatar, name, socialCheck) => {
-  const videoComments = document.querySelector(".comment-write-container");
+//
+const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
+  const videoComments = document.querySelector(".comment-output-container");
   const newComment = document.createElement("div");
-  newComment.dataset.id = id;
   newComment.className = "comment-output-inner";
+  newComment.dataset.id = id;
 
+  const link = document.createElement("a");
+  link.href = `/users/${owner}`;
+  newComment.appendChild(link);
+
+  // avatar(user profile image)
   const avatarDiv = document.createElement("div");
   avatarDiv.className = "comment-avatar";
-  newComment.appendChild(avatarDiv);
+  link.appendChild(avatarDiv);
+
+  const profileDiv = document.createElement("div");
+  profileDiv.className = "profile-image";
+  avatarDiv.appendChild(profileDiv);
 
   if (socialCheck === false && avatar) {
     const img = document.createElement("img");
     img.className = "header__avatar";
-    img.src = "/" + avatar;
     img.crossOrigin = true;
-    avatarDiv.appendChild(img);
+    profileDiv.appendChild(img);
+    img.src = "/" + avatar;
   } else if (socialCheck === true && avatar) {
     const img = document.createElement("img");
     img.className = "header__avatar";
-    img.src = "" + avatar;
     img.crossOrigin = true;
-    avatarDiv.appendChild(img);
+    profileDiv.appendChild(img);
+    img.src = "" + avatar;
   } else if (!avatar && socialCheck === false) {
     const noImg = document.createElement("p");
     noImg.className = "header__avatar no-img";
-    avatarDiv.appendChild(noImg);
+    profileDiv.appendChild(noImg);
   }
 
-  // test
+  // user profile info
+  const infoDiv = document.createElement("div");
+  infoDiv.className = "comment-info";
+  avatarDiv.appendChild(infoDiv);
 
-  // test
+  const createDate = document.createElement("span");
+  createDate.className = "comment-date";
+  date = new Date(createdAt);
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+  const todayYear = date.getFullYear();
+  const todayMonth = String(date.getMonth() + 1);
+  const todayDate = String(date.getDate());
+  createDate.innerText = `${todayYear}.${todayMonth}.${todayDate}.${hours}:${minutes}:${seconds}`;
 
-  const userName = document.createElement("span");
+  infoDiv.appendChild(createDate);
+
+  const userName = document.createElement("p");
   userName.innerText = name;
-  avatarDiv.appendChild(userName);
+  infoDiv.prepend(userName);
 
+  // comment content
   const commentCont = document.createElement("p");
   commentCont.innerText = ` ${text}`;
+  commentCont.className = "comment-cont";
   newComment.appendChild(commentCont);
 
   const deleteBtn = document.createElement("span");
   deleteBtn.innerText = "close";
-  newComment.appendChild(deleteBtn);
   deleteBtn.className = "delete-comment material-icons";
+  deleteBtn.addEventListener("click", handleDelete);
+  newComment.appendChild(deleteBtn);
 
   videoComments.prepend(newComment);
 };
@@ -73,10 +101,24 @@ const handleSubmit = async (event) => {
 
   if (response.status === 201) {
     textarea.value = "";
-    const { newCommentId, ownerAvatar, ownerName, socialCheck } =
-      await response.json();
-    addComment(text, newCommentId, ownerAvatar, ownerName, socialCheck);
-    console.log(socialCheck, ownerName, ownerAvatar);
+    const {
+      newCommentId,
+      ownerAvatar,
+      ownerName,
+      socialCheck,
+      owner,
+      createdAt,
+    } = await response.json();
+    addComment(
+      text,
+      newCommentId,
+      ownerAvatar,
+      ownerName,
+      socialCheck,
+      owner,
+      createdAt
+    );
+    console.log(createdAt);
   }
 };
 

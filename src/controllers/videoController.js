@@ -111,6 +111,14 @@ export const postUpload = async (req, res) => {
 };
 
 //
+// recoder
+//
+
+export const recoder = (req, res) => {
+  return res.render("recoder", { pageTitle: "Recoder" });
+};
+
+//
 //비디오 삭제
 //
 export const deleteVideo = async (req, res) => {
@@ -190,7 +198,9 @@ export const createComment = async (req, res) => {
     ownerName: user.name,
     video: id,
     socialCheck: user.socialOnly,
+    createdAt: new Date(),
   });
+  console.log(req.session);
 
   ownerUser.comments.push(comment._id);
   video.comments.push(comment._id);
@@ -202,8 +212,9 @@ export const createComment = async (req, res) => {
     ownerAvatar: user.avatarUrl,
     ownerName: user.name,
     socialCheck: user.socialOnly,
+    owner: user._id,
+    createdAt: new Date(),
   });
-  console.log(user.socialOnly);
 };
 
 export const deleteComment = async (req, res) => {

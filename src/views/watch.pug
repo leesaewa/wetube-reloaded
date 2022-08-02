@@ -40,18 +40,19 @@ block content
         div.comment-output-inner(data-id=comment._id)
           a(href=`/users/${comment.owner._id}`)
             div.comment-avatar
-              if !comment.ownerAvatar
-                p.header__avatar.no-img
-                
-              else
-                if comment.ownerAvatar[0]==="h"
-                  img(src=comment.ownerAvatar, crossorigin).header__avatar
+              div.profile-image
+                if !comment.ownerAvatar
+                  p.header__avatar.no-img
+                  
                 else
-                  img(src="/" + comment.ownerAvatar, crossorigin).header__avatar
+                  if comment.ownerAvatar[0]==="h"
+                    img(src=comment.ownerAvatar, crossorigin).header__avatar
+                  else
+                    img(src="/" + comment.ownerAvatar, crossorigin).header__avatar
 
               div.comment-info
                 p #{comment.ownerName}
-                span.comment-date #{comment.createdAt.getFullYear()}. #{comment.createdAt.getMonth() +1}. #{comment.createdAt.getDate()}
+                span.comment-date #{comment.createdAt.getFullYear()}.#{comment.createdAt.getMonth() +1}.#{comment.createdAt.getDate()} #{String(comment.createdAt.getHours()).padStart(2, "0")}:#{String(comment.createdAt.getMinutes()).padStart(2, "0")}:#{String(comment.createdAt.getSeconds()).padStart(2, "0")}
 
           p.comment-cont #{comment.text}
           if String(comment.owner) === String(loggedInUser._id)
