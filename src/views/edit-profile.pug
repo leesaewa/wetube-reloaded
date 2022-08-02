@@ -7,25 +7,41 @@ block content
 
 
     form(method="POST", enctype="multipart/form-data").profile-form
-      legend #{loggedInUser.name} edit profile
+      legend
+        span #{loggedInUser.name}
+        | 의 Profile
       fieldset 
         div.profile-avatar
           if loggedInUser.avatarUrl
             p.user-avatar
-              img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin)
-            p.avatar-edit
-              label(for="avatar").material-icons settings
-              input(type="file" id="avatar", name="avatar", accept=".png, .jpg, jepg")
+              img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin)#images
           else 
             span no image
+
+          p.avatar-edit
+            label(for="avatar").material-icons settings
+            input(type="file" id="avatar", name="avatar", accept=".png, .jpg, jepg")
         
 
-        input(name="name", type="text", required, placeholder="name" value=loggedInUser.name)
-        input(name="email", type="email", required, placeholder="email" value=loggedInUser.email)
-        input(name="username", type="text", required, placeholder="username" value=loggedInUser.username)
-        input(name="location", type="text", required, placeholder="location" value=loggedInUser.location)
-        input(type="submit" value="Edit")
+        div.profile-edit
+          div.input-inner
+            label(for="name") 닉네임
+            input(name="name", id="name", type="text", required, placeholder="name" value=loggedInUser.name)
+
+          div.input-inner
+            label(for="username") 아이디
+            input(name="username", id="username", type="text", required, placeholder="username" value=loggedInUser.username)
+
+          div.input-inner
+            label(for="email") 이메일
+            input(name="email", id="email", type="email", required, placeholder="email" value=loggedInUser.email)
+
+          div.input-inner
+            label(for="location") 사는 곳
+            input(name="location", id="location", type="text", required, placeholder="location" value=loggedInUser.location)
+
+          input(type="submit" value="수정하기").submit-btn
 
         if !loggedInUser.socialOnly
           div.edit-profile__password
-            a(href="change-password") Change Password &rarr;
+            a(href="change-password") 비밀번호 변경 &rarr;

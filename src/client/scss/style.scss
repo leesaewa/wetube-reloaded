@@ -44,11 +44,13 @@ img {
 //
 // common
 //
-.row {
+.container {
   max-width: 1600px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
+  @include container;
+}
+.row {
+  max-width: 1200px;
+  @include container;
 }
 
 main {
@@ -59,9 +61,27 @@ main {
 // footer
 //
 footer {
+  margin: 2rem auto 0;
+  text-align: center;
   padding: 2rem 0 4rem;
   border-top: 1px solid $white;
 }
+
+//
+// button
+//
+.submit-btn {
+  background-color: $lightGray;
+  border: 1px solid $lightGray;
+  color: $black;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 1rem 0;
+  font-size: 1em;
+  font-weight: bold;
+  width: 100%;
+}
+
 @keyframes goAway {
   from {
     transform: none;

@@ -6,6 +6,13 @@
   align-items: $flexAC;
 }
 
+// extend
+@mixin container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 // responsive
 @mixin mobile {
   @media screen and (max-width: #{$maxIphone}) {

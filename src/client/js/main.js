@@ -37,3 +37,23 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("open");
   body.style.overflow = "auto";
 });
+
+//
+// file preview
+//
+function filePreview(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    //이미지가 로드되면 images에 덮어쓰기
+    reader.onload = (e) => {
+      const previewImage = document.getElementById("images");
+      previewImage.src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+// input file에 change 이벤트 부여
+const fileImage = document.getElementById("avatar");
+fileImage.addEventListener("change", (e) => {
+  filePreview(e.target);
+});
