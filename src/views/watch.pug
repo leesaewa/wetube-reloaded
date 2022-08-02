@@ -30,19 +30,34 @@ block content
         a(href=`${video.id}/delete`) Delete Video &rarr;
 
   if loggedIn
-    div.comment-add-container
+    article.comment-write-container
       form.video-comment-form#commentForm
         textarea(cols="30", rows="10", placeholder="Write a nice commment...")
         button Add Comment
-  
-  div.comment-write-container
-    ul 
+    
+    article.comment-output-container
       each comment in video.comments.reverse()
-        li(data-id=comment._id)
-          p #{comment.commentOwner}
-          span #{comment.text}
-          if String(comment.owner._id) === String(loggedInUser._id)
+        div.comment-output-inner(data-id=comment._id)
+          a(href=`/users/${comment.owner._id}`)
+            div.comment-avatar
+              if !comment.ownerAvatar
+                p.header__avatar.no-img
+                
+              else
+                if comment.ownerAvatar[0]==="h"
+                  img(src=comment.ownerAvatar, crossorigin).header__avatar
+                else
+                  img(src="/" + comment.ownerAvatar, crossorigin).header__avatar
+
+              div.comment-info
+                p #{comment.ownerName}
+                span.comment-date #{comment.createdAt.getFullYear()}. #{comment.createdAt.getMonth() +1}. #{comment.createdAt.getDate()}
+
+          p.comment-cont #{comment.text}
+          if String(comment.owner) === String(loggedInUser._id)
             span.delete-comment.material-icons close
+
+    
 
 block scripts 
   script(src="/static/js/videoPlayer.js")

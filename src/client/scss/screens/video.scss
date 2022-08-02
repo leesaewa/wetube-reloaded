@@ -33,6 +33,15 @@
   }
 }
 
-.comment-container {
+//
+//
+// comment
+//
+.comment-output-inner {
   border: 1px solid red;
+
+  // delete
+  .delete-comment {
+    cursor: pointer;
+  }
 }

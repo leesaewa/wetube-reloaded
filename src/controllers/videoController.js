@@ -19,10 +19,10 @@ export const watch = async (req, res) => {
     //에러먼저 처리해주는 게 좋음.
     return res.status(404).render("404", { pageTitle: "Video not found." });
   }
-  return res.render("watch", { pageTitle: video.title, video });
+  const comments = await Comment.find({ video: video._id });
+  return res.render("watch", { pageTitle: video.title, video, comments });
 };
 
-//화면에 보여주는 것
 export const getEdit = async (req, res) => {
   const {
     params: { id },
@@ -44,7 +44,6 @@ export const getEdit = async (req, res) => {
   return res.render("edit", { pageTitle: `Editing ${video.title}`, video });
 };
 
-//변경사항을 저장해줌
 export const postEdit = async (req, res) => {
   const {
     params: { id },
@@ -69,10 +68,13 @@ export const postEdit = async (req, res) => {
     hashtags: Video.formatHashtags(hashtags),
   });
 
-  req.flash("success", "Changes saved");
+  req.flash("success", "수정했습니다.");
   return res.redirect(`/videos/${id}`);
 };
 
+//
+// upload
+//
 export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload" });
 };
@@ -91,6 +93,7 @@ export const postUpload = async (req, res) => {
       description,
       fileUrl: Video.changePathFormula(video[0].path),
       thumbUrl: Video.changePathFormula(thumb[0].path),
+      createdAt: new Date(),
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
@@ -107,7 +110,9 @@ export const postUpload = async (req, res) => {
   }
 };
 
+//
 //비디오 삭제
+//
 export const deleteVideo = async (req, res) => {
   const {
     params: { id },
@@ -166,27 +171,66 @@ export const registerView = async (req, res) => {
 // comment
 export const createComment = async (req, res) => {
   const {
-    session: {
-      user: { _id: owner, name: commentOwner },
-    },
+    session: { user },
     body: { text },
     params: { id },
   } = req;
-  console.log(req.session);
+
   const video = await Video.findById(id);
   if (!video) {
     return res.sendStatus(404);
   }
 
+  const ownerUser = await User.findById({ _id: user._id });
+
   const comment = await Comment.create({
     text,
-    owner,
-    commentOwner,
+    owner: user._id,
+    ownerAvatar: user.avatarUrl,
+    ownerName: user.name,
     video: id,
+    socialCheck: user.socialOnly,
   });
+
+  ownerUser.comments.push(comment._id);
   video.comments.push(comment._id);
-  video.save();
-  console.log(commentOwner);
-  console.log(comment._id);
-  return res.status(201).json({ newCommentId: comment._id });
+  await video.save();
+  await ownerUser.save();
+
+  return res.status(201).json({
+    newCommentId: comment._id,
+    ownerAvatar: user.avatarUrl,
+    ownerName: user.name,
+    socialCheck: user.socialOnly,
+  });
+  console.log(user.socialOnly);
+};
+
+export const deleteComment = async (req, res) => {
+  const {
+    params: { id },
+    session: {
+      user: { _id: userId },
+    },
+  } = req;
+
+  const comment = await Comment.findById({ _id: id });
+  const user = await User.findById({ _id: comment.owner });
+  const video = await Video.findById({ _id: comment.video });
+
+  if (!comment) {
+    return res.sendStatus(404);
+  }
+
+  if (String(comment.owner) !== String(userId)) {
+    req.flash("error", "You are not the owner of this comment.");
+    return res.sendStatus(404);
+  }
+
+  await user.comments.pull(comment._id);
+  await user.save();
+  await video.comments.pull(comment._id);
+  await video.save();
+  await Comment.findByIdAndRemove(comment._id);
+  return res.sendStatus(200);
 };

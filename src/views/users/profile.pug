@@ -2,10 +2,12 @@ extends ../base
 include ../mixins/video.pug
 
 block content
+  h3 #{user.name}의 Profile
   div.profile__data
-    if loggedInUser.avatarUrl
-      img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, width="100", height="100", crossorigin)
-  h3=user.name
+    if user.avatarUrl
+      img(src=`${user.socialOnly ? "":"/"}` + user.avatarUrl, width="100", height="100", crossorigin)
+    else 
+      p.header__avatar.no-img
   div.video-grid
     each video in user.videos
       +video(video)
