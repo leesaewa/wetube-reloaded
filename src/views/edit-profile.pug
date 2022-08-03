@@ -42,6 +42,6 @@ block content
 
           input(type="submit" value="수정하기").submit-btn
 
-        if !loggedInUser.socialOnly
-          div.edit-profile__password
-            a(href="change-password") 비밀번호 변경 &rarr;
+          if !loggedInUser.socialOnly
+            div.profile-password
+              a(href="change-password").submit-btn 비밀번호 변경 &rarr;

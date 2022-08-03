@@ -84,7 +84,7 @@
         input {
           width: 100%;
           font-size: 1em;
-          padding: 5px 10px;
+          padding: 10px;
           background-color: $black;
           color: $white;
           border-radius: 5px;
@@ -101,6 +101,19 @@
       }
 
       input[type="submit"] {
+      }
+
+      .profile-password {
+        .submit-btn {
+          margin-top: 10px;
+          background-color: $black;
+          color: $white;
+
+          &:hover {
+            background-color: $lightGray;
+            color: $black;
+          }
+        }
       }
     }
   }

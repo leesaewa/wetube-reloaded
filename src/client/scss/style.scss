@@ -11,6 +11,7 @@
 // Screen
 @import "./screens/video.scss";
 @import "./screens/profile.scss";
+@import "./screens/main.scss";
 
 ::selection {
   background-color: #000;
@@ -21,10 +22,13 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   font-family: "YUniverse-L";
   background: $black;
   color: $white;
+  cursor: none !important;
+  overflow-x: hidden;
 }
 a {
   color: $white;
@@ -35,14 +39,42 @@ a,
 a:hover {
   transition: $easeFive;
   text-decoration: none;
+
+  &.hover-link {
+    cursor: none;
+  }
 }
 
 img {
   max-width: 100%;
 }
+//
+// cursor
+//
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid $white;
+  background-color: $white;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 9999999;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transition-property: background, transform;
+  transform-origin: 100% 100%;
+  background-size: cover;
+  mix-blend-mode: difference;
+
+  &.link-cursor {
+    cursor: crosshair;
+    transform: scale(2);
+  }
+}
 
 //
-// common
+// layout
 //
 .container {
   max-width: 1600px;
@@ -75,11 +107,16 @@ footer {
   border: 1px solid $lightGray;
   color: $black;
   border-radius: 50px;
-  cursor: pointer;
   padding: 1rem 0;
   font-size: 1em;
   font-weight: bold;
   width: 100%;
+  transition: $easeFive;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
 }
 
 @keyframes goAway {

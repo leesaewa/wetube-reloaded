@@ -5,7 +5,7 @@ import "../scss/style.scss";
 let headerScroll = document.querySelector("header");
 let headerHeight = headerScroll.offsetHeight;
 
-window.onscroll = function () {
+document.onscroll = function () {
   let windowTop = window.scrollY;
   if (windowTop >= headerHeight) {
     headerScroll.classList.add("scroll");
@@ -54,6 +54,8 @@ function filePreview(input) {
 }
 // input file에 change 이벤트 부여
 const fileImage = document.getElementById("avatar");
-fileImage.addEventListener("change", (e) => {
-  filePreview(e.target);
-});
+if (fileImage) {
+  fileImage.addEventListener("change", (e) => {
+    filePreview(e.target);
+  });
+}

@@ -5,12 +5,13 @@ import {
   getLogin,
   postLogin,
 } from "../controllers/userController";
-import { home, search } from "../controllers/videoController";
+import { main, home, search } from "../controllers/videoController";
 import { publicOnlyMiddleware } from "../middlewares.js";
 
 const rootRouter = express.Router();
 
-rootRouter.get("/", home);
+rootRouter.get("/", main);
+rootRouter.get("/home", home);
 
 rootRouter.route("/join").all(publicOnlyMiddleware).get(getJoin).post(postJoin);
 

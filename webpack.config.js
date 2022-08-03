@@ -10,6 +10,7 @@ module.exports = {
     videoPlayer: BASE_JS + "videoPlayer.js",
     recorder: BASE_JS + "recorder.js",
     commentSection: BASE_JS + "commentSection.js",
+    cursor: BASE_JS + "cursor.js",
   },
   plugins: [new MiniCssExtractPlugin({ filename: "css/style.css" })],
   watch: true,
