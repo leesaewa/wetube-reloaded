@@ -65,7 +65,7 @@ export const postLogin = async (req, res) => {
   }
   req.session.loggedIn = true;
   req.session.user = user;
-  return res.redirect("/");
+  return res.redirect("/home");
 };
 
 //
@@ -137,7 +137,7 @@ export const finishGithubLogin = async (req, res) => {
     }
     req.session.loggedIn = true;
     req.session.user = user;
-    return res.redirect("/");
+    return res.redirect("/home");
   } else {
     return res.redirect("/login");
   }
@@ -232,7 +232,7 @@ export const postEdit = async (req, res) => {
 export const getChangePassword = (req, res) => {
   if (req.session.user.socialOnly === true) {
     req.flash("error", "Can't change password");
-    return res.redirect("/");
+    return res.redirect("/home");
   }
   return res.render("users/change-password", { pageTitle: "Change password" });
 };

@@ -1,2 +1,56 @@
-#index-container {
+#index-body {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/src/client/img/background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+
+  section {
+    max-width: 50%;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid red;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+
+    .logo {
+      position: absolute;
+      animation: mainLogo 3s linear infinite;
+      left: 0;
+      right: 0;
+      top: 50px;
+    }
+
+    .text-wrap {
+      border: 1px solid red;
+      margin-top: 50%;
+
+      .text-title {
+        h2 {
+          font-weight: bold;
+        }
+        ul {
+          li {
+            border: 1px solid red;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+
+      .login-box {
+        border: 1px solid black;
+        padding: 2rem 0;
+        @include flexBox($flexJC: space-between);
+
+        a {
+          width: 48%;
+        }
+      }
+    }
+  }
 }

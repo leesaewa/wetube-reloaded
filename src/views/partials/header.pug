@@ -1,6 +1,6 @@
 header 
   h1 
-    a(href="/") hogwartube
+    a(href="/home") hogwartube
   
   
   nav 
@@ -17,11 +17,11 @@ header
           else
             img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin).header__avatar
 
-          span #{loggedInUser.name}
+          a(href="javascript:void(0)") #{loggedInUser.name}
             i.material-icons expand_more
             
         li 
-          a(href="")
+          a(href="javascript:void(0)")
             i.material-icons notifications
             | 
       else
@@ -50,7 +50,7 @@ header
       li 
         a(href="/users/logout")
           span.material-icons logout 
-          | 머글의 세계로 Logout
+          | 마법의 장난 끝
   //- div.hamburger
   //-   span 
   //-   span 

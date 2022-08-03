@@ -3,7 +3,7 @@
 //
 let mouseCursor = document.querySelector(".cursor");
 let link = document.querySelectorAll("a");
-// window.addEventListener("scroll", cursor);
+
 window.addEventListener("mousemove", cursor);
 function cursor(e) {
   mouseCursor.style.left = e.pageX + "px";

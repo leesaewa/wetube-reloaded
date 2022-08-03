@@ -2,7 +2,7 @@ import multer from "multer";
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
-  res.locals.siteName = "Wetube";
+  res.locals.siteName = "MARAUTUBE";
   res.locals.loggedInUser = req.session.user || {};
   // console.log(res.locals.loggedInUser);
   // console.log(req.session.user);
@@ -25,7 +25,7 @@ export const publicOnlyMiddleware = (req, res, next) => {
     return next();
   } else {
     req.flash("error", "Not authorized");
-    return res.redirect("/");
+    return res.redirect("/home");
   }
 };
 

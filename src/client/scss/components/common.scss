@@ -1,0 +1,111 @@
+//
+// cursor
+//
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid $white;
+  background-color: $white;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 9999999;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transition-property: background, transform;
+  transform-origin: 100% 100%;
+  background-size: cover;
+  mix-blend-mode: difference;
+
+  &.link-cursor {
+    cursor: crosshair;
+    transform: scale(2);
+  }
+}
+
+//
+// layout
+//
+.container {
+  max-width: 1600px;
+  @include container;
+}
+.row {
+  max-width: 1200px;
+  @include container;
+}
+
+main {
+  padding-top: 150px;
+}
+
+//
+// footer
+//
+footer {
+  margin: 2rem auto 0;
+  text-align: center;
+  padding: 2rem 0 4rem;
+  border-top: 1px solid $white;
+}
+
+//
+// button
+//
+.submit-btn {
+  background-color: $lightGray;
+  border: 1px solid $lightGray;
+  color: $black;
+  border-radius: 50px;
+  padding: 1rem 0;
+  font-size: 1em;
+  font-weight: bold;
+  width: 100%;
+  transition: $easeFive;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+//
+// button eff
+//
+.button-eff {
+  position: relative;
+  border: 1px solid $black;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  width: 100%;
+
+  &::before {
+    font-family: $materialIcon;
+    content: "chevron_right";
+    position: absolute;
+    right: 10px;
+  }
+}
+
+//
+// message//error
+//
+
+.message {
+  z-index: 999;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 200px;
+  padding: 10px 20px;
+  border-radius: 10000px;
+  text-align: center;
+  animation: goAway 0.5s ease-in-out forwards;
+  animation-delay: 3s;
+  &.error {
+    background-color: tomato;
+    color: white;
+  }
+}

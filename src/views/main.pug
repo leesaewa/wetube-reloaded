@@ -1,13 +1,32 @@
-doctype html 
-html(lang="ko")
-  head
-    title #{pageTitle} | #{siteName}
-    //- link(rel="stylesheet", href="https://unpkg.com/mvp.css")
-    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
-    link(rel="stylesheet", href="/static/css/style.css")
+include partials/head
 
-  body#index-container 
-    div.cursor
+body#index-body 
+  div.cursor
+
+  main
+    section
+      h1.logo
+        img(src="/logo.png", alt="I solemnly swear I am up to no good.")
+      
+      div.text-wrap
+        div.text-title
+          | 나는 못된 짓거리를 시작할 것을 엄숙히 선언합니다.
+
+          h2 notice
+          ul 
+            li 호그와트의 규칙을 잘 지키는 모범생 출입금지.
+            li 
+            li 머글에게 들킬 시, 회원 자격 박탈.
+            li 세베루스 스네이프의 호기심을 영원히 피하게 하는 마법이 포함되어 있음.
+
+        div.start-btn
+            a(href="/home").button-eff 마법의 장난 시작
+
+        div.login-box
+          a(href="/join").button-eff 머로더즈에 합류할래요.
+          a(href="/login").button-eff 이미 머로더즈 회원이에요. 
+        a(href="https://www.google.co.uk/?gl=uk").button-eff 머글이 뭐예요? 
 
 
-  script(src="/static/js/cursor.js")
+
+script(src="/static/js/cursor.js")

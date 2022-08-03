@@ -1,6 +1,24 @@
 import regeneratorRuntime from "regenerator-runtime";
 import "../scss/style.scss";
 
+//
+// loading
+
+const loader = document.querySelector(".loading");
+const body = document.querySelector("body");
+
+body.style.overflow = "hidden"; //로딩 중 스크롤 방지
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    //로딩속도 구현
+    loader.style.opacity = "0";
+    body.style.overflow = "auto"; //스크롤 방지 해제
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 400);
+  }, 2000);
+});
+
 //header
 let headerScroll = document.querySelector("header");
 let headerHeight = headerScroll.offsetHeight;
@@ -18,7 +36,6 @@ document.onscroll = function () {
 const loginBtn = document.querySelector(".login");
 const dropMenuCont = document.querySelector(".drop-menu");
 const overlay = document.querySelector(".overlay");
-const body = document.querySelector("body");
 
 if (loginBtn) {
   loginBtn.addEventListener("click", () => {

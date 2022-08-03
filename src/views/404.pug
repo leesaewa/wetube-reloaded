@@ -1,2 +1,17 @@
-extends base
+include partials/head 
 
+body#error-body
+
+  main.row
+    div.cursor
+    h1=pageTitle
+
+    div.text-box
+      p 무니 씨가 스네이프 교수에게 안부를 전해달라는군요. 그리고 다른 사람 일에는 쓸데없이 참견하지 말아달라고 합니다
+      p 프롱스 씨도 무니 씨와 동감이랍니다. 그리고 스네이프 교수는 심술궂은 멍텅구리라는 말을 덧붙이고 싶다는군요.
+      p 패드풋 씨는 그런 얼간이가 교수가 되었다는 사실에 경악을 금치 못한다는 말을 하고 싶다고 합니다.
+      p 웜테일 씨는 스네이프 교수에게 이만 작별을 고하겠다고 합니다. 그리고 참, 그에게 머리 좀 감으라는군요.
+    img(src="/snape.gif" alt="스네이프 박수: 에러에 당첨된 걸 환영한다.")
+
+
+  script(src="/static/js/cursor.js")
