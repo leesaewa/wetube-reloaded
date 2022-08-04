@@ -7,14 +7,19 @@
   background-size: cover;
   overflow: hidden;
 
+  // .fadeIn {
+  //   opacity: 0;
+  //   animation: fadeIn 3s ease-in-out;
+  //   animation-delay: 1.5s;
+  // }
+
   section {
     max-width: 50%;
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    border: 1px solid red;
     position: absolute;
-    right: 0;
+    right: 4rem;
     top: 0;
     height: 100%;
 
@@ -27,28 +32,130 @@
     }
 
     .text-wrap {
-      border: 1px solid red;
-      margin-top: 50%;
+      margin-top: 36%;
 
-      .text-title {
-        h2 {
+      h2 {
+        font-size: 2em;
+        border-bottom: 1px solid $black;
+        padding-bottom: 2rem;
+      }
+      .text-cont {
+        margin: 2rem auto;
+
+        h3 {
+          font-size: 2em;
           font-weight: bold;
+          padding-bottom: 2rem;
         }
         ul {
+          list-style-type: circle;
+          max-width: 50%;
+          width: 100%;
+          margin: 0 auto;
+
           li {
-            border: 1px solid red;
+            text-align: left;
+            font-size: 1.2em;
             margin-bottom: 1rem;
           }
         }
       }
 
+      .start-btn {
+        a {
+          background-color: $mainColor;
+          color: $white;
+          border: 1px solid transparent;
+
+          &:hover {
+            background-color: $black;
+          }
+        }
+      }
+
       .login-box {
-        border: 1px solid black;
         padding: 2rem 0;
         @include flexBox($flexJC: space-between);
 
         a {
-          width: 48%;
+          width: 32%;
+
+          &:nth-child(3) {
+            background-color: #000;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  #index-body {
+    background-position: 35% 0%;
+
+    section {
+      right: 2rem;
+
+      .logo {
+        top: 40px;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .text-wrap {
+        margin-top: 44%;
+
+        .text-cont {
+          ul {
+            max-width: 100%;
+            padding-left: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include smallTablet {
+  #index-body {
+    height: 100%;
+    background-position: 7% center;
+    overflow: auto;
+
+    main {
+      padding: 2rem;
+
+      section {
+        position: initial;
+        right: 0;
+        padding: 2rem;
+        max-width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 1.5rem;
+      }
+    }
+  }
+}
+
+@include mobile {
+  #index-body {
+    background-position: 22% center;
+
+    main {
+      section {
+        .text-wrap {
+          .login-box {
+            flex-wrap: wrap;
+
+            a {
+              width: 100%;
+
+              &:not(:last-child) {
+                margin-bottom: 10px;
+              }
+            }
+          }
         }
       }
     }

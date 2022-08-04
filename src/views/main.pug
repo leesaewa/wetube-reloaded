@@ -2,31 +2,50 @@ include partials/head
 
 body#index-body 
   div.cursor
+    div.rotate
+      span l
+      span u
+      span m
+      span o
+      span s
+    div.rotate
+      span l
+      span u
+      span m
+      span o
+      span s
 
   main
     section
       h1.logo
-        img(src="/logo.png", alt="I solemnly swear I am up to no good.")
+        img.fadeIn(src="/logo.png", alt="I solemnly swear I am up to no good.")
       
       div.text-wrap
         div.text-title
-          | 나는 못된 짓거리를 시작할 것을 엄숙히 선언합니다.
+          h2.fadeIn 나는 못된 짓거리를 시작할 것을 엄숙히 선언합니다.
 
-          h2 notice
+        div.text-cont
+          h3.eng.fadeIn notice
           ul 
-            li 호그와트의 규칙을 잘 지키는 모범생 출입금지.
-            li 
-            li 머글에게 들킬 시, 회원 자격 박탈.
-            li 세베루스 스네이프의 호기심을 영원히 피하게 하는 마법이 포함되어 있음.
+            li.fadeIn 호그와트의 규칙을 잘 지키는 모범생 출입금지.
+            li.fadeIn 머글에게 들킬 시, 회원 자격 박탈.
+            li.fadeIn 세베루스 스네이프의 호기심을 영원히 피하게 하는 마법이 포함되어 있음.
 
-        div.start-btn
+        div.start-btn.fadeIn
             a(href="/home").button-eff 마법의 장난 시작
 
-        div.login-box
-          a(href="/join").button-eff 머로더즈에 합류할래요.
-          a(href="/login").button-eff 이미 머로더즈 회원이에요. 
-        a(href="https://www.google.co.uk/?gl=uk").button-eff 머글이 뭐예요? 
+        div.login-box.fadeIn
+          a(href="/join").button-eff.fadeIn 머로더즈에 합류할래요.
+          a(href="/login").button-eff.fadeIn 이미 머로더즈 회원이에요. 
+          a(href="https://www.google.co.uk/?gl=uk").button-eff.fadeIn 머글이 뭐예요? 
 
 
 
 script(src="/static/js/cursor.js")
+script(type="text/javascript").
+  const fade = document.querySelectorAll(".fadeIn");
+  fade.forEach((fade) => {
+    setTimeout(() => {
+      fade.style.opacity = "1";
+    }, 4300);
+  });

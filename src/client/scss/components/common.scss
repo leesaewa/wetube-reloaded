@@ -18,7 +18,6 @@
   mix-blend-mode: difference;
 
   &.link-cursor {
-    cursor: crosshair;
     transform: scale(2);
   }
 }
@@ -75,15 +74,29 @@ footer {
 .button-eff {
   position: relative;
   border: 1px solid $black;
+  color: $black;
   border-radius: 50px;
   padding: 1rem 2rem;
   width: 100%;
 
   &::before {
+    transition: $easeFive;
     font-family: $materialIcon;
     content: "chevron_right";
     position: absolute;
     right: 10px;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+
+    &::before {
+      animation: btnArrow 2s infinite ease;
+    }
   }
 }
 

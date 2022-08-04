@@ -2,9 +2,88 @@
   overflow: hidden;
 
   main {
+    h1 {
+      font-size: 4em;
+      border-bottom: 1px solid $black;
+      padding-bottom: 2rem;
+    }
     .text-box {
+      margin: 50px auto;
       p {
         margin-bottom: 2rem;
+      }
+    }
+
+    figure {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      margin: auto;
+      border-radius: 10px;
+      overflow: hidden;
+
+      &:hover figcaption {
+        opacity: 1;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      figcaption {
+        transition: $easeFive;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(130, 6, 6, 0.5);
+        color: $white;
+        @include flexBox;
+        line-height: 2rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    a {
+      font-size: 1.2em;
+      margin: 50px auto;
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+}
+
+@include tablet {
+  #error-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    main {
+      padding: 50px 2rem;
+      h1 {
+        font-size: 2em;
+      }
+
+      figure {
+        width: 100%;
+
+        figcaption {
+          margin-top: 2px;
+          opacity: 1;
+          position: relative;
+          background: $mainColor;
+          line-height: 1.2rem;
+          font-size: 1rem;
+          padding: 20px;
+        }
       }
     }
   }

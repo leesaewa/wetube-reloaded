@@ -1,7 +1,6 @@
 // Config
 @import "./config/_variables";
 @import "./config/_reset.scss";
-@import "./config/_fonts.scss";
 @import "./config/_mixin.scss";
 
 // Components
@@ -17,9 +16,37 @@
 @import "./screens/main.scss";
 @import "./screens/404.scss";
 
+//
+// font
+//
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Hahmlet:wght@200;300;400;500;600;700;800&display=swap");
+
+// Regular 400
+// SemiBold 600
+// Bold 700
+// ExtraBold 800
+.eng {
+  font-family: "Cinzel", serif;
+}
+
+// ExtraLight 200
+// Light 300
+// Regular 400
+// Medium 500
+// SemiBold 600
+// Bold 700
+// ExtraBold 800
+.kor {
+  font-family: "Hahmlet", serif;
+}
+//
+
+//
+// css custom
+//
 ::selection {
-  background-color: #000;
-  color: #fff;
+  background-color: $black;
+  color: $white;
 }
 
 * {
@@ -28,7 +55,7 @@
 
 html,
 body {
-  font-family: "YUniverse-L";
+  font-family: "Hahmlet", serif;
   background: url("/src/client/img/paper.jpg") repeat 0 0;
   color: $black;
   cursor: none !important;
@@ -40,6 +67,7 @@ a {
   color: $black;
   display: block;
   text-decoration: none;
+  transition: $easeFive;
 
   &:hover {
     transition: $easeFive;
@@ -52,4 +80,5 @@ a {
 
 img {
   max-width: 100%;
+  vertical-align: bottom;
 }
