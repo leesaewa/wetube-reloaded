@@ -1,7 +1,13 @@
 header 
   h1 
-    a(href="/home") hogwartube
+    a(href="/home").eng 
+      img(src="/hogwarts.png", alt="호그와트 로고")
+      span MARAUTUBE
   
+  div.search-wrap
+    form(method="GET" action="/search")
+      input(placeholder="Search by title", type="text", name="keyword")
+      input(type="submit", name="" value="Search now").hover-link
   
   nav 
     ul.nav
@@ -12,12 +18,13 @@ header
       if loggedIn
         li.login
           if !loggedInUser.avatarUrl
-            p.header__avatar.no-img
+            p.avatar-img.no-img
             
           else
-            img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin).header__avatar
+            img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin).avatar-img
 
-          a(href="javascript:void(0)") #{loggedInUser.name}
+          a(href="javascript:void(0)")
+            span #{loggedInUser.name}
             i.material-icons expand_more
             
         li 

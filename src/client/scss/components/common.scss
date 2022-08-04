@@ -4,8 +4,7 @@
 .cursor {
   width: 3rem;
   height: 3rem;
-  border: 1px solid $white;
-  background-color: $white;
+  border: 3px solid $white;
   border-radius: 50%;
   position: absolute;
   z-index: 9999999;
@@ -15,16 +14,72 @@
   transition-property: background, transform;
   transform-origin: 100% 100%;
   background-size: cover;
-  mix-blend-mode: difference;
 
+  .link-wrap {
+    display: none;
+  }
   &.link-cursor {
     transform: scale(2);
+    mix-blend-mode: difference;
+    background-color: $white;
+
+    .link-wrap {
+      mix-blend-mode: normal !important;
+      display: block;
+      animation: rotateCircle 6s linear infinite;
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid $white;
+
+      .cursor-rotate {
+        display: block;
+        @extend %position;
+        border-color: $white;
+
+        span {
+          text-transform: uppercase;
+          position: absolute;
+          color: $white;
+
+          &:nth-child(1) {
+            top: 28px;
+            left: -7px;
+            transform: rotate(-104deg);
+          }
+          &:nth-child(2) {
+            left: 11px;
+            top: -8px;
+            transform: rotate(-25deg);
+          }
+          &:nth-child(3) {
+            left: 52px;
+            top: 0px;
+            transform: rotate(52deg);
+          }
+          &:nth-child(4) {
+            left: 57px;
+            top: 39px;
+            transform: rotate(111deg);
+          }
+          &:nth-child(5) {
+            left: 20px;
+            bottom: 64px;
+            transform: rotate(200deg);
+          }
+        }
+      }
+    }
   }
 }
 
 //
 // layout
 //
+main,
 .container {
   max-width: 1600px;
   @include container;
@@ -36,6 +91,41 @@
 
 main {
   padding-top: 150px;
+}
+
+//
+// profile image
+//
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  &.no-img {
+    background-color: $white;
+    position: relative;
+
+    &::before {
+      content: "No Data";
+      @include flexBox;
+      color: $black;
+      height: 100%;
+      text-align: center;
+      font-size: 13px;
+    }
+  }
+}
+
+//
+// input custom
+//
+input {
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  border: 1px solid transparent;
+  font-size: 16px;
+}
+input[type="submit"] {
 }
 
 //

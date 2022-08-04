@@ -8,6 +8,7 @@ const deleteBtns = document.querySelectorAll(".delete-comment");
 //fake comment
 //
 const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
+  const avatarClass = "avatar-img";
   const videoComments = document.querySelector(".comment-output-container");
   const newComment = document.createElement("div");
   newComment.className = "comment-output-inner";
@@ -28,19 +29,19 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
 
   if (socialCheck === false && avatar) {
     const img = document.createElement("img");
-    img.className = "header__avatar";
+    img.className = avatarClass;
     img.crossOrigin = true;
     profileDiv.appendChild(img);
     img.src = "/" + avatar;
   } else if (socialCheck === true && avatar) {
     const img = document.createElement("img");
-    img.className = "header__avatar";
+    img.className = avatarClass;
     img.crossOrigin = true;
     profileDiv.appendChild(img);
     img.src = "" + avatar;
   } else if (!avatar && socialCheck === false) {
     const noImg = document.createElement("p");
-    noImg.className = "header__avatar no-img";
+    noImg.className = avatarClass + " no-img";
     profileDiv.appendChild(noImg);
   }
 
@@ -51,14 +52,7 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
 
   const createDate = document.createElement("span");
   createDate.className = "comment-date";
-  date = new Date(createdAt);
-  const hours = String(date.getHours()).padStart(2, "0");
-  const minutes = String(date.getMinutes()).padStart(2, "0");
-  const seconds = String(date.getSeconds()).padStart(2, "0");
-  const todayYear = date.getFullYear();
-  const todayMonth = String(date.getMonth() + 1);
-  const todayDate = String(date.getDate());
-  createDate.innerText = `${todayYear}.${todayMonth}.${todayDate}.${hours}:${minutes}:${seconds}`;
+  createDate.innerText = new Date(createdAt).toLocaleString("ko-kr");
 
   infoDiv.appendChild(createDate);
 

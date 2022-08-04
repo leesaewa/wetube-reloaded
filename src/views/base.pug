@@ -2,9 +2,8 @@ include mixins/message
 include partials/head
 
 body.common
-  div.cursor
-
-  include partials/loading
+  include partials/cursor
+  //- include partials/loading
 
   if messages.error 
     +messages("error", messages.error)
@@ -14,8 +13,8 @@ body.common
     +messages("success", messages.success)
   include partials/header
 
-  main
-    block content
+
+  block content
   include partials/footer
 script(src="/static/js/main.js")
 script(src="/static/js/cursor.js")

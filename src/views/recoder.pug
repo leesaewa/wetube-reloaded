@@ -1,12 +1,13 @@
 extends base
 
 block content 
-  div
-    video#preview
-    button#actionBtn Start Recording 
-  
-  div.recoder-btn
-    a(href="/videos/upload") upload page 
+  main
+    div
+      video#preview
+      button#actionBtn Start Recording 
+    
+    div.recoder-btn
+      a(href="/videos/upload") upload page 
 
 block scripts 
   script(src="/static/js/recorder.js")

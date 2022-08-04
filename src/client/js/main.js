@@ -7,12 +7,12 @@ import "../scss/style.scss";
 const loader = document.querySelector(".loading");
 const body = document.querySelector("body");
 
-body.style.overflow = "hidden"; //로딩 중 스크롤 방지
 window.addEventListener("load", () => {
+  body.style.overflow = "hidden"; //로딩 중 스크롤 방지
   setTimeout(() => {
     //로딩속도 구현
     loader.style.opacity = "0";
-    body.style.overflow = "auto"; //스크롤 방지 해제
+    body.style.overflowY = "auto"; //스크롤 방지 해제
     setTimeout(() => {
       loader.style.display = "none";
     }, 400);
@@ -44,7 +44,7 @@ if (loginBtn) {
     overlay.classList.toggle("open");
     body.style.overflow = "hidden";
     if (!loginBtn.classList.contains("open")) {
-      body.style.overflow = "auto";
+      body.style.overflowY = "auto";
     }
   });
 }
@@ -52,7 +52,7 @@ overlay.addEventListener("click", () => {
   dropMenuCont.classList.remove("open");
   loginBtn.classList.remove("open");
   overlay.classList.remove("open");
-  body.style.overflow = "auto";
+  body.style.overflowY = "auto";
 });
 
 //

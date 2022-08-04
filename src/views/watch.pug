@@ -1,66 +1,82 @@
 extends base
+include mixins/video
 
 block content 
-  section#videoContainer(data-id=video._id)
-    video(src="/" + video.fileUrl)
-    div#videoControls.videoControls
-      button#play.material-icons play_arrow
+  main.container#watch
+    section
+      article#videoContainer(data-id=video._id)
+        video(src="/" + video.fileUrl)
+        div#videoControls.videoControls
+          button#play.material-icons play_arrow
 
-      div.controls_time
-        span#currentTime 00:00 
-        span / 
-        span#totalTime 00:00
-        input(type="range", step="1", value=0, min="0")#timeLine
+          div.controls_time
+            span#currentTime 00:00 
+            span / 
+            span#totalTime 00:00
+            input(type="range", step="1", value=0, min="0")#timeLine
 
-      div.controls_volume
-        button#mute.material-icons volume_up
-        input(type="range", step="0.1", value=0.5, min="0", max="1")#volume.material-icons
+          div.controls_volume
+            button#mute.material-icons volume_up
+            input(type="range", step="0.1", value=0.5, min="0", max="1")#volume.material-icons
+          
+          div 
+            button#fullScreen.material-icons fullscreen
+        
+      article.uploader-wrap
+        h2 #{pageTitle}
+        small.upload-date=new Date(video.createdAt).toLocaleDateString("ko-kr")
       
-      div 
-        button#fullScreen.material-icons fullscreen
-    
-  div.cont
-    h2 #{pageTitle}
-  
-  div 
-    small Uploaded by 
-      a(href=`/users/${video.owner._id}`) #{video.owner.name}
-    if String(video.owner._id) === String(loggedInUser._id)
-        a(href=`${video.id}/edit`) Edit Video &rarr;
-        a(href=`${video.id}/delete`) Delete Video &rarr;
+        div 
+          small Uploaded by 
+            a(href=`/users/${video.owner._id}`) #{video.owner.name}
+          if String(video.owner._id) === String(loggedInUser._id)
+              a(href=`${video.id}/edit`) Edit Video &rarr;
+              a(href=`${video.id}/delete`) Delete Video &rarr;
+        div.description
+          p #{video.description}
+        ul.hashtag
+          each hashtag in video.hashtags
+              li=hashtag
 
-  if loggedIn
-    article.comment-write-container
-      form.video-comment-form#commentForm
-        textarea(cols="30", rows="10", placeholder="Write a nice commment...")
-        button Add Comment
-    
-    article.comment-output-container
-      each comment in video.comments.reverse()
-        div.comment-output-inner(data-id=comment._id)
-          a(href=`/users/${comment.owner._id}`)
-            div.comment-avatar
-              div.profile-image
-                if !comment.ownerAvatar
-                  p.header__avatar.no-img
-                  
-                else
-                  if comment.ownerAvatar[0]==="h"
-                    img(src=comment.ownerAvatar, crossorigin).header__avatar
+    section.container.comment-container 
+      if loggedIn
+      article.comment-write-container
+        form.video-comment-form#commentForm
+          textarea(cols="30", rows="10", placeholder="Write a nice commment...")
+          button.hover-link Add Comment
+      
+      article.comment-output-container
+        each comment in video.comments.reverse()
+          div.comment-output-inner(data-id=comment._id)
+            a(href=`/users/${comment.owner._id}`)
+              div.comment-avatar
+                div.profile-image
+                  if !comment.ownerAvatar
+                    p.avatar-img.no-img
+                    
                   else
-                    img(src="/" + comment.ownerAvatar, crossorigin).header__avatar
+                    if comment.ownerAvatar[0]==="h"
+                      img(src=comment.ownerAvatar, crossorigin).avatar-img
+                    else
+                      img(src="/" + comment.ownerAvatar, crossorigin).avatar-img
 
-              div.comment-info
-                p #{comment.ownerName}
-                span.comment-date #{comment.createdAt.getFullYear()}.#{comment.createdAt.getMonth() +1}.#{comment.createdAt.getDate()} #{String(comment.createdAt.getHours()).padStart(2, "0")}:#{String(comment.createdAt.getMinutes()).padStart(2, "0")}:#{String(comment.createdAt.getSeconds()).padStart(2, "0")}
+                div.comment-info
+                  p #{comment.ownerName}
+                  span.comment-date #{new Date(comment.createdAt).toLocaleString("ko-kr")}
 
-          p.comment-cont #{comment.text}
-          if String(comment.owner) === String(loggedInUser._id)
-            span.delete-comment.material-icons close
-
+            p.comment-cont #{comment.text}
+            if String(comment.owner) === String(loggedInUser._id)
+              span.delete-comment.material-icons close
     
+    section 
+      ul 
+        li #{video.thumb} #{video.title}, #{video.description}
+        img(src=`${"/" + video.thumbUrl}`)
+
+
 
 block scripts 
   script(src="/static/js/videoPlayer.js")
   if loggedIn
     script(src="/static/js/commentSection.js")
+  script(type="text/javascript").

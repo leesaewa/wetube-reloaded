@@ -2,12 +2,9 @@ extends base.pug
 include mixins/video.pug
 
 block content
-  form(method="GET")
-    input(placeholder="Search by title", type="text", name="keyword")
-    input(type="submit", name="" value="Search now")
-
-  div
-    each video in videos
-      +video(video)
-    else
-      span.empty__message No videos found
+  main
+    div
+      each video in videos
+        +video(video)
+      else
+        span.empty__message No videos found

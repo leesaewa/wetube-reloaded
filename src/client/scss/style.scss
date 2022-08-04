@@ -59,6 +59,7 @@ body {
   background: url("/src/client/img/paper.jpg") repeat 0 0;
   color: $black;
   cursor: none !important;
+  // overflow: auto;
 }
 .common {
   overflow-x: hidden !important;
@@ -81,4 +82,9 @@ a {
 img {
   max-width: 100%;
   vertical-align: bottom;
+}
+input,
+button,
+textarea {
+  cursor: none;
 }

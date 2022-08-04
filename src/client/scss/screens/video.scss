@@ -1,3 +1,56 @@
+#watch {
+  @include flexBox($flexAC: flex-start);
+}
+
+.uploader-wrap {
+}
+
+//
+// comment
+//
+.comment-container {
+  border: 1px solid red;
+
+  .comment-write-container {
+    border: 1px solid blue;
+  }
+
+  // 출력
+  .comment-output-container {
+    border: 1px solid blue;
+
+    .comment-output-inner {
+      text-align: left;
+
+      a {
+        display: inline-block;
+
+        .comment-avatar {
+          @include flexBox($flexJC: flex-start);
+
+          .profile-image {
+            border: 1px solid red;
+            margin-right: 5px;
+          }
+        }
+        .comment-info {
+          text-align: left;
+          p {
+          }
+          .comment-date {
+          }
+        }
+      }
+    }
+
+    .comment-cont {
+      border: 1px solid red;
+      .delete-comment {
+      }
+    }
+  }
+}
+
 .video-grid {
   display: grid;
   gap: 50px;
