@@ -5,10 +5,18 @@ header {
   position: fixed;
   transition: $easeFive;
   z-index: 99;
+  top: 0;
+  left: 0;
   background-color: $black;
 
   &.scroll {
-    padding: 0.4rem 0;
+    padding: 10px 0;
+
+    nav {
+      .drop-menu {
+        top: 67px;
+      }
+    }
   }
 
   a {
@@ -21,6 +29,10 @@ header {
     a {
       @include flexBox;
 
+      span.eng {
+        font-weight: 400;
+      }
+
       img {
         width: 50px;
       }
@@ -28,10 +40,30 @@ header {
   }
 
   .search-wrap {
+    form {
+      @include flexBox($flexAC: flex-start);
+
+      input[type="text"] {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        width: 500px;
+      }
+
+      .hover-link {
+        background: $mainColor;
+        border: 1px solid $white;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: $white;
+
+        &:hover {
+          background-color: $realBlack;
+        }
+      }
+    }
   }
 
   nav {
-    border: 1px solid green;
     position: relative;
     padding-right: 2rem;
 
@@ -39,8 +71,26 @@ header {
       @include flexBox;
 
       li {
-        border: 1px solid blue;
         font-size: 1.2em;
+
+        &.search-icon {
+          display: none;
+        }
+
+        a {
+          @include flexBox($flexW: wrap);
+
+          i {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+          }
+          span {
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
 
         &:not(:last-child) {
           margin-right: 5px;
@@ -56,8 +106,15 @@ header {
           @include flexBox;
           a {
             display: flex;
+
+            i {
+              display: inline-block;
+              width: auto;
+              font-size: 24px;
+            }
             span {
               margin-left: 10px;
+              font-size: 20px;
             }
           }
           &.open {
@@ -74,14 +131,16 @@ header {
     }
 
     .drop-menu {
-      width: 20%;
+      width: 400px;
       position: fixed;
-      top: 100px;
+      top: 104px;
       right: 10px;
       visibility: hidden;
       opacity: 0;
       transition: $easeFive;
-      border-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      overflow: hidden;
       background: $black;
 
       &.open {
@@ -93,6 +152,10 @@ header {
       li {
         text-align: center;
 
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
         a {
           padding: 1rem 2rem;
           @include flexBox($flexAC: center);
@@ -102,17 +165,8 @@ header {
             margin-right: 10px;
           }
 
-          &:first-child {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-          }
-          &:last-child {
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-          }
-
           &:hover {
-            background: #000;
+            background: $mainColor;
           }
         }
       }
@@ -120,21 +174,109 @@ header {
   }
 }
 
-.tests {
-  padding: 100% 0;
-}
-
+//
+//
+//
+// responsive
+//
 @include tablet {
   header {
-    align-items: flex-start;
-    flex-direction: column;
-
     &.scroll {
       padding: 6px 20px;
+    }
+    .search-wrap {
+      form {
+        @include flexBox($flexAC: flex-start);
 
-      .hamburger {
-        top: 10px;
+        input[type="text"] {
+          width: 200px;
+        }
       }
+    }
+  }
+}
+
+@include smallTablet {
+  header {
+    bottom: 0;
+    padding: 0;
+    top: auto;
+
+    &.scroll {
+      padding: 0;
+
+      nav {
+        .drop-menu {
+          &.open {
+            top: auto;
+          }
+        }
+      }
+    }
+
+    h1 {
+      padding-left: 1rem;
+      a {
+        span.eng {
+          display: none;
+        }
+      }
+    }
+
+    .search-wrap {
+      display: none;
+    }
+
+    nav {
+      padding-right: 0;
+
+      ul.nav {
+        align-items: flex-start;
+
+        li {
+          border-left: 1px solid $white;
+          width: 40%;
+          padding: 10px;
+
+          &:not(:last-child) {
+            margin-right: 0;
+          }
+
+          &.search-icon {
+            display: block;
+          }
+          &.notifications {
+            display: none;
+          }
+          &.login {
+            width: auto;
+            padding: 17px 10px;
+
+            a {
+              flex-wrap: nowrap;
+            }
+          }
+        }
+      }
+
+      .drop-menu {
+        bottom: 76px;
+        top: auto;
+        right: 0;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+    }
+  }
+}
+
+@include mobile {
+  header {
+    h1 {
+      padding: 0 1rem;
     }
   }
 }

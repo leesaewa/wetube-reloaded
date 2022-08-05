@@ -2,36 +2,42 @@ extends base.pug
 
 block content
   main
-    section.row.profile-container
+    section.row.basic-form-container
       if errorMessage
         span=errorMessage
 
 
-      form(method="POST", enctype="multipart/form-data").profile-form
+      form(method="POST", enctype="multipart/form-data").basic-form.profile-form
         legend
-          span #{loggedInUser.name}
-          | 의 Profile
+          span 
+            span #{loggedInUser.name}
+            | 의 
+            span.eng Profile
         fieldset 
           div.profile-avatar
-            if loggedInUser.avatarUrl
-              p.user-avatar
-                img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin)#images
-            else 
-              span no image
+            p.user-avatar
+              if !loggedInUser.avatarUrl
+                p.avatar-img.no-img
+                  
+              else
+                if loggedInUser.avatarUrl[0]==="h"
+                  img(src=loggedInUser.avatarUrl, crossorigin).avatar-img#images
+                else
+                  img(src="/" + loggedInUser.avatarUrl, crossorigin).avatar-img#images
 
             p.avatar-edit
-              label(for="avatar").material-icons settings
+              label(for="avatar").material-icons.hover-link settings
               input(type="file" id="avatar", name="avatar", accept=".png, .jpg, jepg")
           
 
-          div.profile-edit
+          div.basic-form-info
             div.input-inner
               label(for="name") 닉네임
               input(name="name", id="name", type="text", required, placeholder="name" value=loggedInUser.name)
 
             div.input-inner
               label(for="username") 아이디
-              input(name="username", id="username", type="text", required, placeholder="username" value=loggedInUser.username)
+              input(name="username", id="username", type="text", placeholder="username" value=loggedInUser.username, disabled)
 
             div.input-inner
               label(for="email") 이메일
@@ -41,8 +47,12 @@ block content
               label(for="location") 사는 곳
               input(name="location", id="location", type="text", required, placeholder="location" value=loggedInUser.location)
 
-            input(type="submit" value="수정하기").submit-btn
+            div.input-inner
+              label(for="word") 소개글
+              input(name="word", id="word", type="text", required, placeholder="소개글", value=loggedInUser.word)
+
+            input(type="submit" value="수정하기").hover-link
 
             if !loggedInUser.socialOnly
               div.profile-password
-                a(href="change-password").submit-btn 비밀번호 변경 &rarr;
+                a(href="change-password").button-eff 비밀번호 변경

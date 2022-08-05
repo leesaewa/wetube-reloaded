@@ -9,6 +9,7 @@
 
   .fadeIn {
     opacity: 0;
+    visibility: hidden;
     animation: fadeIn 3s ease-in-out;
     animation-delay: 1.5s;
   }

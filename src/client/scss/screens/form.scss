@@ -1,0 +1,266 @@
+//
+// basic form
+//
+
+.basic-form-container {
+  .basic-form {
+    legend {
+      font-size: 2.6rem;
+      margin-bottom: 50px;
+      border-bottom: 1px solid $black;
+      padding-bottom: 50px;
+
+      span {
+        display: inline-block;
+        font-weight: bold;
+
+        span {
+          margin-right: 5px;
+        }
+      }
+    }
+    .profile-avatar {
+      position: relative;
+      max-width: 300px;
+      width: 100%;
+      margin: 0 auto;
+
+      span {
+        display: block;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        color: $mainColor;
+        font-size: 1.2em;
+      }
+
+      .user-avatar {
+        position: relative;
+        background-color: $black;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 100%;
+
+        img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          @include flexBox();
+        }
+      }
+    }
+
+    .avatar-edit {
+      position: absolute;
+      bottom: 5px;
+      right: 26px;
+      background-color: $white;
+      border-radius: 50px;
+      border: 1px solid #ebebeb;
+
+      label {
+        width: 50px;
+        height: 50px;
+        @include flexBox();
+        color: $black;
+        cursor: pointer;
+      }
+
+      input[type="file"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    }
+
+    // caution
+    .caution {
+      list-style-type: circle;
+      width: 50%;
+      margin: 0 auto;
+      text-align: left;
+      padding-left: 30px;
+      font-size: 1em;
+      border-bottom: 1px dotted $black;
+      padding-bottom: 50px;
+
+      li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    // input
+    .basic-form-info {
+      width: 50%;
+      margin: 50px auto;
+
+      .input-inner {
+        text-align: left;
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+
+        label {
+          font-size: 1.2em;
+          display: block;
+        }
+        input {
+          @include profileInput;
+
+          &::placeholder {
+            color: $white;
+          }
+
+          &:focus {
+            @include inputFocus;
+          }
+          &:disabled {
+            background: $lightGray;
+            color: $mainColor;
+          }
+        }
+
+        textarea {
+          @include profileInput;
+          resize: none;
+          height: 150px;
+
+          &::placeholder {
+            color: $white;
+          }
+
+          &:focus {
+            @include inputFocus;
+          }
+        }
+
+        &.file-inner {
+          span {
+            font-size: 20px;
+          }
+
+          .thumb-check {
+            width: 100%;
+            height: 50%;
+            background-color: #ddd;
+            border-radius: 8px;
+            margin-top: 8px;
+            overflow: hidden;
+            object-fit: cover;
+          }
+
+          label {
+            &.hover-link {
+              @include profileInput;
+              padding: 1rem 0;
+              text-align: center;
+              background-color: $mainColor;
+
+              &:hover {
+                background-color: $black;
+              }
+            }
+          }
+
+          input[type="file"] {
+            display: none;
+          }
+
+          p {
+            @include flexBox;
+
+            .file-return {
+              width: 70%;
+            }
+
+            .input-file-trigger {
+              width: 30%;
+            }
+          }
+        }
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        background-color: $mainColor;
+        color: $white;
+        border-radius: 5px;
+
+        &:hover {
+          border: 1px solid $mainColor;
+          background-color: $white;
+          color: $mainColor;
+        }
+      }
+
+      .profile-password {
+        margin-top: 50px;
+        a {
+          background-color: $realBlack;
+          color: $white;
+        }
+      }
+    }
+
+    // social btn
+    .social-login {
+      margin-top: 30px;
+
+      a {
+        @include flexBox;
+        border-radius: 10px;
+        color: $white;
+        background-color: $realBlack;
+
+        svg {
+          width: 30px;
+          margin-right: 10px;
+          fill: $white;
+        }
+      }
+    }
+
+    .account-check {
+      border-top: 1px dashed $mainColor;
+      margin-top: 4rem;
+      padding-top: 2rem;
+
+      span {
+        font-size: 2em;
+        span {
+          font-size: 1em;
+        }
+      }
+      a {
+        margin-top: 2rem;
+        background-color: $white;
+
+        &:hover {
+          background-color: $black;
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .basic-form-container {
+    .basic-form {
+      padding: 2rem;
+    }
+  }
+}
+@include mobile {
+  .basic-form-container {
+    .basic-form {
+      .caution,
+      .basic-form-info {
+        width: 100%;
+      }
+    }
+  }
+}

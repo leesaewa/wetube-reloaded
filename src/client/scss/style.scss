@@ -12,21 +12,21 @@
 
 // Screen
 @import "./screens/video.scss";
-@import "./screens/profile.scss";
 @import "./screens/main.scss";
 @import "./screens/404.scss";
+@import "./screens/form.scss";
+@import "./screens/home.scss";
 
 //
 // font
 //
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Hahmlet:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Hahmlet:wght@200;300;400;500;600;700;800&display=swap");
 
 // Regular 400
-// SemiBold 600
 // Bold 700
-// ExtraBold 800
 .eng {
-  font-family: "Cinzel", serif;
+  font-family: "Cinzel Decorative", cursive;
+  font-weight: bold;
 }
 
 // ExtraLight 200
@@ -51,6 +51,22 @@
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  width: 6px;
+}
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  border-left: 0;
+  border-right: 0;
+  background-color: $black;
 }
 
 html,
@@ -82,9 +98,11 @@ a {
 img {
   max-width: 100%;
   vertical-align: bottom;
+  border: none !important;
 }
 input,
 button,
+label,
 textarea {
   cursor: none;
 }

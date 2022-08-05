@@ -117,15 +117,24 @@ main {
 }
 
 //
-// input custom
+// basic input custom
 //
-input {
-  border-radius: 10px;
-  padding: 1rem 2rem;
+input,
+textarea {
+  padding: 10px 20px;
   border: 1px solid transparent;
   font-size: 16px;
+  font-family: "Hahmlet", serif;
+  font-weight: 400;
+  transition: $easeFive;
+  line-height: 2em;
+
+  &:focus {
+    @include inputFocus;
+  }
 }
-input[type="submit"] {
+textarea {
+  resize: none;
 }
 
 //
@@ -135,27 +144,7 @@ footer {
   margin: 2rem auto 0;
   text-align: center;
   padding: 2rem 0 4rem;
-  border-top: 1px solid $white;
-}
-
-//
-// button
-//
-.submit-btn {
-  background-color: $lightGray;
-  border: 1px solid $lightGray;
-  color: $black;
-  border-radius: 50px;
-  padding: 1rem 0;
-  font-size: 1em;
-  font-weight: bold;
-  width: 100%;
-  transition: $easeFive;
-
-  &:hover {
-    background-color: $black;
-    color: $white;
-  }
+  border-top: 1px solid $black;
 }
 
 //
@@ -196,10 +185,9 @@ footer {
 
 .message {
   z-index: 999;
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
   margin: 0 auto;
   max-width: 200px;
   padding: 10px 20px;
@@ -208,7 +196,26 @@ footer {
   animation: goAway 0.5s ease-in-out forwards;
   animation-delay: 3s;
   &.error {
-    background-color: tomato;
+    background-color: $mainColor;
     color: white;
+  }
+}
+
+@include smallTablet {
+  main {
+    padding-top: 4rem;
+  }
+
+  footer {
+    margin: 2rem auto 56px;
+  }
+
+  .message {
+    right: 0;
+    left: 0;
+    top: 30px;
+    bottom: auto;
+    animation: errorMobile 0.5s ease-in-out forwards;
+    animation-delay: 3s;
   }
 }

@@ -1,19 +1,20 @@
 header 
   h1 
-    a(href="/home").eng 
+    a(href="/home") 
       img(src="/hogwarts.png", alt="호그와트 로고")
-      span MARAUTUBE
+      span.eng #{siteName}
   
   div.search-wrap
     form(method="GET" action="/search")
-      input(placeholder="Search by title", type="text", name="keyword")
-      input(type="submit", name="" value="Search now").hover-link
+      input(placeholder="검색어를 입력하세요. ex)스네이프 재수없음, 해리포터 나대지마라", type="text", name="keyword")
+      input(type="submit", name="" value="Search now").hover-link.eng
   
   nav 
     ul.nav
-      li
+      li.search-icon
         a(href="/search")
           i.material-icons search
+          span.eng Search
         
       if loggedIn
         li.login
@@ -27,33 +28,32 @@ header
             span #{loggedInUser.name}
             i.material-icons expand_more
             
-        li 
+        li.notifications
           a(href="javascript:void(0)")
             i.material-icons notifications
-            | 
       else
-        li 
+        li
           a(href="/join")
             i.material-icons person_add
-            | Join
-        li 
+            span.eng Join
+        li
           a(href="/login")
             i.material-icons login
-            | Login
+            span.eng Login
           
     ul.drop-menu
       li 
-        a(href="/videos/upload")
+        a(href="/videos/upload").eng
           span.material-icons upload
           | Upload Video
       li 
-        a(href=`/users/${loggedInUser._id}`)
+        a(href=`/users/${loggedInUser._id}`).eng
           span.material-icons account_circle 
           | My Channel
       li
         a(href="/users/edit")
           span.material-icons manage_accounts
-          | 비밀의 방 Edit Profile
+          | 폴리주스 마법약
       li 
         a(href="/users/logout")
           span.material-icons logout 
@@ -62,4 +62,4 @@ header
   //-   span 
   //-   span 
   //-   span
-div.overlay
+//- div.overlay

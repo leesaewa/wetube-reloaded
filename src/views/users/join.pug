@@ -1,19 +1,59 @@
 extends ../base.pug
 
 block content
-  main
+  main.row.basic-form-container
     if errorMessage
       span=errorMessage
-    form(method="POST")
-      input(name="name", type="text", required, placeholder="name")
-      input(name="email", type="email", required, placeholder="email")
-      input(name="username", type="text", required, placeholder="username")
-      input(name="password", type="password", required, placeholder="password")
-      input(name="password2", type="password", required, placeholder="Confirm password")
-      input(name="location", type="text", required, placeholder="location")
-      input(type="submit", value="Join")
+    form(method="POST", enctype="multipart/form-data").basic-form.join-form
+      legend
+        span 
+          span.eng #{siteName}
+        | 회원가입
+      
+      fieldset
+        div.profile-avatar
+          span 프로필 이미지를 등록해보세요!
+          p.user-avatar
+            img(src="none", crossorigin)#images
 
-    include ../partials/social-login
-    div.auth-switch
-      span Already have an account? 
-      a(href="/login") Log in now &rarr;
+          p.avatar-edit
+            label(for="avatar").material-icons.hover-link settings
+            input(type="file" id="avatar", name="avatar", accept=".png, .jpg, jepg")
+
+        div.basic-form-info
+          div.input-inner
+            label(for="name") 닉네임
+            input(name="name", type="text", required, placeholder="닉네임", id="name")
+
+          div.input-inner
+            label(for="email") 이메일
+            input(name="email", type="email", required, placeholder="이메일", id="email")
+
+          div.input-inner
+            label(for="id") 아이디
+            input(name="username", type="text", required, placeholder="아이디", id="id")
+
+          div.input-inner
+            label(for="password") 비밀번호
+            input(name="password", type="password", required, placeholder="비밀번호", id="password")
+
+          div.input-inner
+            label(for="password2") 비밀번호 확인
+            input(name="password2", type="password", required, placeholder="비밀번호 확인", id="password2")
+
+          div.input-inner
+            label(for="location") 사는 곳
+            input(name="location", type="text", required, placeholder="어디에 살고 있나요?", id="location")
+
+          div.input-inner
+            label(for="word") 소개글
+            textarea(name="word", required, placeholder="멋지게 자신을 소개해보세요!" id="word")
+
+        
+          input(type="submit", value="회원가입").hover-link
+
+          div.account-check
+            span 이미 
+              span.eng #{siteName}
+              | 회원인가요?
+            a(href="/login").button-eff.eng Log in now

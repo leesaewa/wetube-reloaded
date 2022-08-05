@@ -166,7 +166,7 @@ export const search = async (req, res) => {
       },
     }).populate("owner");
   }
-  return res.render("search", { pageTitle: "Search", videos });
+  return res.render("search", { pageTitle: `'${keyword}' 검색 결과`, videos });
 };
 
 //

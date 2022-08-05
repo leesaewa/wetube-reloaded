@@ -4,20 +4,20 @@ import "../scss/style.scss";
 //
 // loading
 
-const loader = document.querySelector(".loading");
-const body = document.querySelector("body");
+// const loader = document.querySelector(".loading");
+// const body = document.querySelector("body");
 
-window.addEventListener("load", () => {
-  body.style.overflow = "hidden"; //로딩 중 스크롤 방지
-  setTimeout(() => {
-    //로딩속도 구현
-    loader.style.opacity = "0";
-    body.style.overflowY = "auto"; //스크롤 방지 해제
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 400);
-  }, 2000);
-});
+// window.addEventListener("load", () => {
+//   body.style.overflow = "hidden"; //로딩 중 스크롤 방지
+//   setTimeout(() => {
+//     //로딩속도 구현
+//     loader.style.opacity = "0";
+//     body.style.overflowY = "auto"; //스크롤 방지 해제
+//     setTimeout(() => {
+//       loader.style.display = "none";
+//     }, 400);
+//   }, 2000);
+// });
 
 //header
 let headerScroll = document.querySelector("header");
@@ -35,25 +35,25 @@ document.onscroll = function () {
 // nav
 const loginBtn = document.querySelector(".login");
 const dropMenuCont = document.querySelector(".drop-menu");
-const overlay = document.querySelector(".overlay");
+// const overlay = document.querySelector(".overlay");
 
 if (loginBtn) {
   loginBtn.addEventListener("click", () => {
     dropMenuCont.classList.toggle("open");
     loginBtn.classList.toggle("open");
-    overlay.classList.toggle("open");
+    // overlay.classList.toggle("open");
     body.style.overflow = "hidden";
     if (!loginBtn.classList.contains("open")) {
       body.style.overflowY = "auto";
     }
   });
 }
-overlay.addEventListener("click", () => {
-  dropMenuCont.classList.remove("open");
-  loginBtn.classList.remove("open");
-  overlay.classList.remove("open");
-  body.style.overflowY = "auto";
-});
+// overlay.addEventListener("click", () => {
+//   dropMenuCont.classList.remove("open");
+//   loginBtn.classList.remove("open");
+//   overlay.classList.remove("open");
+//   body.style.overflowY = "auto";
+// });
 
 //
 // file preview
@@ -71,8 +71,41 @@ function filePreview(input) {
 }
 // input file에 change 이벤트 부여
 const fileImage = document.getElementById("avatar");
+const thumbInput = document.querySelector(".thumb-input");
 if (fileImage) {
   fileImage.addEventListener("change", (e) => {
     filePreview(e.target);
+  });
+}
+
+if (thumbInput) {
+  const thumb = document.querySelector(".thumb");
+  thumbInput.addEventListener("change", (e) => {
+    if (!thumb.classList.contains("thumb-check")) {
+      const img = document.createElement("img");
+      img.id = "images";
+      thumb.appendChild(img);
+      thumb.classList.add("thumb-check");
+      filePreview(e.target);
+    } else {
+      filePreview(e.target);
+    }
+  });
+}
+
+//
+// init our variables
+const fileInput = document.querySelector(".input-file");
+const labelBtn = document.querySelector(".input-file-trigger");
+const previewReturn = document.querySelector(".file-return");
+
+if (fileInput) {
+  labelBtn.addEventListener("click", function (event) {
+    fileInput.focus();
+    return false;
+  });
+
+  fileInput.addEventListener("change", function (event) {
+    previewReturn.value = this.value;
   });
 }

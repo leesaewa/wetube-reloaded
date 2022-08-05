@@ -13,6 +13,23 @@
   text-align: center;
 }
 
+// input
+@mixin profileInput {
+  width: 100%;
+  font-size: 16px;
+  background-color: $black;
+  color: $white;
+  border-radius: 5px;
+  transition: $easeFive;
+  margin-top: 8px;
+}
+
+@mixin inputFocus {
+  outline: 1px solid $mainColor;
+  color: $mainColor;
+  background-color: $white;
+}
+
 // responsive
 @mixin mobile {
   @media screen and (max-width: #{$maxIphone}) {

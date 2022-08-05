@@ -1,0 +1,49 @@
+.video-container {
+  border-top: 1px solid $black;
+  padding-top: 2rem;
+  margin: 2rem auto;
+
+  h2 {
+    font-size: 2em;
+    padding-bottom: 2rem;
+    text-align: left;
+  }
+
+  .video-grid {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+}
+
+//
+//
+//
+//
+//
+
+@include tablet {
+  .video-container {
+    .video-grid {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+  }
+}
+
+@include smallTablet {
+  .video-container {
+    .video-grid {
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+  }
+}
+
+@include mobile {
+  .video-container {
+    .video-grid {
+      display: grid;
+      gap: 0;
+      grid-template-columns: 1fr;
+    }
+  }
+}

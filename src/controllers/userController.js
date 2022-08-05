@@ -5,7 +5,17 @@ import bcrypt from "bcrypt";
 export const getJoin = (req, res) =>
   res.render("users/join", { pageTitle: "Create Account" });
 export const postJoin = async (req, res) => {
-  const { name, username, email, password, password2, location } = req.body;
+  const {
+    name,
+    username,
+    email,
+    password,
+    password2,
+    location,
+    word,
+    avatarUrl,
+  } = req.body;
+  const { file } = req;
   const pageTitle = "Join";
   if (password !== password2) {
     return res.status(400).render("users/join", {
@@ -22,15 +32,15 @@ export const postJoin = async (req, res) => {
   }
 
   try {
-    console.log("join start");
     await User.create({
       name,
       username,
       email,
       password,
       location,
+      word,
+      avatarUrl: file ? file.path : avatarUrl,
     });
-    console.log("join complete");
     return res.redirect("/login");
   } catch (error) {
     console.log("join err");
@@ -41,6 +51,10 @@ export const postJoin = async (req, res) => {
     });
   }
 };
+
+//
+// login
+//
 
 export const getLogin = (req, res) =>
   res.render("users/login", { pageTitle: "Login" });
@@ -168,20 +182,19 @@ export const postEdit = async (req, res) => {
     session: {
       user: {
         _id,
-        username: findUsername,
+        // username: findUsername,
         email: findEmail,
         socialOnly,
         avatarUrl,
       },
     },
-    body: { name, email, username, location },
+    body: { name, email, location, word },
     file,
   } = req;
-  console.log(file);
 
   //email 중복체크
   if (email !== findEmail) {
-    const checkEmail = await User.exists({ email });
+    const checkEmail = await User.findById({ email });
     if (checkEmail) {
       return res.status(400).render("edit-profile", {
         pageTitle,
@@ -190,16 +203,16 @@ export const postEdit = async (req, res) => {
     }
   }
 
-  // username 중복체크
-  if (username !== findUsername) {
-    const checkUsername = await User.exists({ username });
-    if (checkUsername) {
-      return res.status(400).render("edit-profile", {
-        pageTitle,
-        errorMessage: "This username is exists.",
-      });
-    }
-  }
+  // username 중복체크 -> 바꾸지 못하도록 함
+  // if (username !== findUsername) {
+  //   const checkUsername = await User.findById({ username });
+  //   if (checkUsername) {
+  //     return res.status(400).render("edit-profile", {
+  //       pageTitle,
+  //       errorMessage: "This username is exists.",
+  //     });
+  //   }
+  // }
 
   // social check
   if (socialOnly && findEmail !== email) {
@@ -215,8 +228,9 @@ export const postEdit = async (req, res) => {
       avatarUrl: file ? file.path : avatarUrl,
       name,
       email,
-      username,
+
       location,
+      word,
     },
     { new: true }
   );

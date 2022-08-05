@@ -10,7 +10,7 @@ body#index-body
       
       div.text-wrap
         div.text-title
-          h2.fadeIn 나는 못된 짓거리를 시작할 것을 엄숙히 선언합니다.
+          h2.fadeIn 나는 나쁜 짓을 할 것임을 엄숙하게 선언합니다.
 
         div.text-cont
           h3.eng.fadeIn notice
@@ -23,9 +23,9 @@ body#index-body
             a(href="/home").button-eff 마법의 장난 시작
 
         div.login-box.fadeIn
-          a(href="/join").button-eff.fadeIn 머로더즈에 합류할래요.
-          a(href="/login").button-eff.fadeIn 이미 머로더즈 회원이에요. 
-          a(href="https://www.google.co.uk/?gl=uk").button-eff.fadeIn 머글이 뭐예요? 
+          a(href="/join").button-eff 머로더즈에 합류할래요.
+          a(href="/login").button-eff 이미 머로더즈 회원이에요. 
+          a(href="https://www.google.co.uk/?gl=uk").button-eff 머글이 뭐예요? 
 
 
 
@@ -35,5 +35,6 @@ script(type="text/javascript").
   fade.forEach((fade) => {
     setTimeout(() => {
       fade.style.opacity = "1";
+      fade.style.visibility="visible"
     }, 4300);
   });

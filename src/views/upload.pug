@@ -2,17 +2,45 @@ extends base
 
 block content 
   main
-    if errorMessage
-      span=errorMessage
+    section.row.basic-form-container
+      if errorMessage
+        span=errorMessage
 
-    form(method="POST", enctype="multipart/form-data")
-      label(for="video") Video File 
-      input(type="file", accept="video/*", required, id="video", name="video")
-      label(for="thumb") Thumbnail File 
-      input(type="file", accept="image/*", required, id="thumb", name="thumb")
-      input(placeholder="Title", required, type="text", name="title", maxlength=80)
-      input(placeholder="Description", required, type="text", name="description", minlength=20)
-      input(placeholder="Hashtags, separated by comma", required, type="text", name="hashtags")
-      input(type="submit", value="upload Video")
+      form(method="POST", enctype="multipart/form-data").basic-form.upload-form
+        legend
+          span #{pageTitle}
+
+        fieldset
+          ul.caution
+            li 10mb이상의 영상은 올라가지 않아요.
+            li 썸네일과 영상이 다를 경우, Cockroach Clusters를 선물로 드려요.
+
+          div.basic-form-info
+            div.input-inner.file-inner
+              span 비디오
+              p
+                input(value="파일선택", disabled, name="fileHidden").file-return
+                label(for="video").hover-link.input-file-trigger 비디오 파일 가져오기
+                input(type="file", accept="video/*", required, id="video", name="video").input-file
+
+            div.input-inner.file-inner
+              span 썸네일
+              p.thumb
+              label(for="avatar").hover-link 썸네일 파일 가져오기
+              input(type="file", accept=".png, .jpg, jepg", required, id="avatar", name="thumb").thumb-input
+            
+            div.input-inner
+              label(for="title") 비디오 제목
+              input(placeholder="최대 80자까지 작성할 수 있습니다.", required, type="text", name="title", maxlength=80, id="title")
+            
+            div.input-inner
+              label(for="description") 비디오 설명
+              textarea(placeholder="20자 이상 작성해주세요", required, type="text", name="description", minlength=20, id="description").kor
+
+            div.input-inner
+              label(for="hashtag") 해쉬태그
+              input(placeholder="영상에 들어갈 해쉬태그를 콤마(,)로 구분해서 입력해주세요.", required, type="text", name="hashtags", id="hashtag")
+              
+            input(type="submit", value="비디오 업로드").hover-link
 
 block scripts 

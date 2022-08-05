@@ -3,8 +3,10 @@ include mixins/video.pug
 
 block content
   main
-    div
-      each video in videos
-        +video(video)
-      else
-        span.empty__message No videos found
+    section.video-container
+      h2 #{pageTitle}
+      div.video-grid
+        each video in videos
+          +video(video)
+        else
+          span.empty__message No videos found

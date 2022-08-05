@@ -4,6 +4,17 @@
     opacity: 1;
   }
   to {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes errorMobile {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
     transform: translateY(-50px);
     opacity: 0;
   }
@@ -36,10 +47,12 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-50px);
   }
   100% {
     opacity: 1;
+    visibility: visible;
     transform: none;
   }
 }

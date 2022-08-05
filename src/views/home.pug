@@ -3,25 +3,15 @@ include mixins/video
 
 block content 
   main
-    section.container
+    section
       div#noticeSlide
         h2 Notice! 
         p 요즘 머글들이 이 사이트에 접속한다고 합니다. 공공장소에서 사용한 뒤에는 제발 로그아웃 좀 하세요.
 
 
-    section 
-      div 
-        h2 호그와트 유명인
-        figure 
-          img(src="", alt="")
-          figcaption 
-            h2 harry potter 
-            p 안녕? 모두 알겠지만 내가 그 호그와트를 구한 영웅 해리포터야. 물론 볼드모트는 내 밥이야.^^ 
-            p 내 호그와튜브에 참여하고 싶니? 수강료 100 갈레온만 내면 너도 나와 함께 영상을 찍을 수 있어^^
-            p 말포이 너는 입 좀 닥쳐줄래?
 
-
-      h2 New Video
+    section.video-container
+      h2.eng trending video
       div.video-grid
         
         each video in videos
