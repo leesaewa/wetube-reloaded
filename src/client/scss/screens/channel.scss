@@ -1,0 +1,9 @@
+#channel {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  section {
+    border: 1px solid red;
+  }
+}

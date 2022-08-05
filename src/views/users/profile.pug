@@ -3,21 +3,24 @@ include ../mixins/video.pug
 
 block content
   main#channel
-    h3 #{user.name}의 채널
-    div.profile__data
-      p.user-avatar
+    section.user-infomation
+      h3 #{user.name}의 채널
+      div.profile__data
         if !user.avatarUrl
           p.avatar-img.no-img
             
         else
           if user.avatarUrl[0]==="h"
-            img(src=user.avatarUrl, crossorigin).avatar-img
+            div(style=`background-image:url(${user.avatarUrl})`)
           else
-            img(src="/" + user.avatarUrl, crossorigin).avatar-img
-      a(href="/users/edit") 프로필 수정하러 가기
-    span #{user.word}
-    div.video-grid
-      each video in user.videos
-        +video(video)
-      else
-        span.empty__message No videos found
+            div(style=`background-image:url(${"/" + user.avatarUrl})`)
+        a(href="/users/edit") 프로필 수정하러 가기
+      span #{user.word}
+
+    //- 동영상 출력
+    section.video-infomation
+      div.video-grid
+        each video in user.videos
+          +video(video)
+        else
+          span.empty__message No videos found
