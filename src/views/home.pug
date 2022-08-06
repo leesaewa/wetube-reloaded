@@ -3,19 +3,75 @@ include mixins/video
 
 block content 
   main
-    section
-      div#noticeSlide
-        h2 Notice! 
-        p 요즘 머글들이 이 사이트에 접속한다고 합니다. 공공장소에서 사용한 뒤에는 제발 로그아웃 좀 하세요.
+    h2.eng Discovery
+    section.first-container
+      article.discovery
+        div.discovery-inner.www
+          div.text
+            h2.eng Weasleys' Wizard Wheezes
+            p The so-called ‘joke’ shop run by twins Fred and George Weasley purports to be a haven of harmless fun: the home of these mischievous jesters and their merry pranks. But don’t be fooled! It is a shadowy den of reckless irresponsibility, a purveyor of goods so wildly dangerous that they shouldn’t be sold to adults, never mind children. How is any of this stuff legal?
+            div.subscription
+              a(href="") 
+                img(src="/twin.jpg", alt="Weasleys' Wizard Wheezes")
+                span.eng WWW
 
+        div.discovery-inner.da
+          div.text
+            h2.eng Dumbledore's Army
+            p 덤블도어의 군대가 궁금합니까?
+              br
+              | 그러면 클릭하세요!
+              br
+              | 여러분들의 니즈를 충족시켜줄 덤블도어의 군대! N.E.W.T. 통과 선배들 다수 포진. 멋진 선배들과 함께 O.W.L., N.E.W.T.를 타파해요!
+            div.subscription
+              a(href="")
+                img(src="/da.jpg", alt="Weasleys' Wizard Wheezes")
+                span.eng D.A channel
+
+
+      article.best-uploader 
+        h2.eng Best Uploader 
+        
+        ul 
+          li
+            div.best-data
+              img.best-img(src="/lilly.jpg")
+              div.best-info
+                h3 릴리의 마법약
+                span.eng 3,125,230 Followers
+              a(href="").eng.button-eff View
+          
+          li
+            div.best-data
+              img.best-img(src="/harry.jpg")
+              div.best-info
+                h3 해리 포터
+                span.eng 2,112,800 Followers
+              a(href="").eng.button-eff View
+          
+          li
+            div.best-data
+              img.best-img(src="/death_eaters.jpg")
+              div.best-info
+                h3 죽먹자
+                span.eng 2,026,320 Followers
+              a(href="").eng.button-eff View
+          
+          li
+            div.best-data
+              img.best-img(src="/Draco.jpg")
+              div.best-info
+                h3 드레이코
+                span.eng 1,726,320 Followers
+              a(href="").eng.button-eff View
 
 
     section.video-container
-      h2.eng trending video
+      h2.eng Trending Video
       div.video-grid
         
         each video in videos
           +video(video)
         else
-          span.empty__message No videos found
+          span.empty__message.eng Someone used Deletrius.
       

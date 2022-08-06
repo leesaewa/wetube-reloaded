@@ -3,7 +3,10 @@ extends ../base.pug
 block content
   main.row.basic-form-container
     if errorMessage
-      span=errorMessage
+      div.message.error
+        span=errorMessage
+
+
     form(method="POST", enctype="multipart/form-data").basic-form.join-form
       legend
         span 
@@ -47,7 +50,7 @@ block content
 
           div.input-inner
             label(for="word") 소개글
-            textarea(name="word", required, placeholder="멋지게 자신을 소개해보세요!" id="word")
+            textarea(name="word", required, placeholder="멋지게 자신을 소개해보세요! 200자까지 입력할 수 있어요." id="word", maxlength="200")
 
         
           input(type="submit", value="회원가입").hover-link

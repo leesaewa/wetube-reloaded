@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   avatarUrl: String,
   socialOnly: { type: Boolean, default: false },
   username: { type: String, required: true, unique: true },
-  word: { type: String, required: true },
+  word: { type: String, required: true, maxLength: 200 },
   password: { type: String },
   name: { type: String, required: true },
   location: String,
@@ -22,6 +22,10 @@ userSchema.pre("save", async function () {
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 5);
   }
+});
+
+userSchema.static("changePathFormula", (urlPath) => {
+  return urlPath.replace(/\\/g, "/");
 });
 
 const User = mongoose.model("User", userSchema);

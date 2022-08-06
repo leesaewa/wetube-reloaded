@@ -6,7 +6,7 @@ import {
   postUpload,
   getUpload,
   deleteVideo,
-  recoder,
+  recorder,
 } from "../controllers/videoController";
 import { protectorMiddleware, videoUpload } from "../middlewares.js";
 
@@ -31,6 +31,6 @@ videoRouter
   .get(getUpload)
   .post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postUpload);
 
-videoRouter.get("/recoder", recoder);
+videoRouter.get("/recorder", recorder);
 
 export default videoRouter;

@@ -4,9 +4,10 @@ include mixins/video.pug
 block content
   main
     section.video-container
-      h2 #{pageTitle}
+      h2.search-ttl #{pageTitle}
       div.video-grid
         each video in videos
           +video(video)
         else
-          span.empty__message No videos found
+          div.not-found
+            span.eng Not found

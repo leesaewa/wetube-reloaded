@@ -1,6 +1,8 @@
 #videoContainer {
   background: $black;
   position: relative;
+  border-radius: 30px;
+  overflow: hidden;
 
   video {
     width: 100%;
@@ -19,11 +21,6 @@
     border-radius: 10px;
     margin: 0 auto;
     padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr auto;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
 
     &.showing {
       opacity: 1;
@@ -37,8 +34,54 @@
     }
 
     .controls_time {
+      @include flexBox($flexJC: space-between);
+      color: $white;
+
       #timeLine {
         width: 100%;
+      }
+
+      .time {
+        width: 140px;
+        text-align: right;
+        color: #fff;
+      }
+    }
+
+    .controls {
+      @include flexBox($flexJC: space-between);
+
+      .controls_volume {
+        @include flexBox($flexJC: space-between);
+      }
+    }
+
+    input[type="range"] {
+      all: unset;
+      background-color: transparent;
+      border-radius: 50px;
+      overflow: hidden;
+      height: 10px;
+      -webkit-appearance: none;
+      width: 100%;
+
+      &::focus {
+        outline: 0;
+      }
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        background: $mainColor;
+        box-shadow: -100vw 0 0 100vw $mainColor;
+      }
+      &::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: $white;
       }
     }
   }

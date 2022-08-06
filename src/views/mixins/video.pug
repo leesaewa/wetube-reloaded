@@ -23,3 +23,34 @@ mixin video(video)
                     ul.video-mixin-hashtag
                         each hashtag in video.hashtags
                             li=hashtag
+
+mixin videoColumn(video)
+    a(href=`/videos/${video.id}`).video-column
+        figure
+            div.video-column-thumb(style=`background-image:url(${"/" + video.thumbUrl})`)
+
+            figcaption
+                div.video-column-data
+                    h2=video.title
+                    div.video-column-meta
+                        p
+                            span.material-icons visibility
+                            span #{video.meta.views} views
+
+                        p
+                            span.material-icons schedule
+                            span #{new Date(video.createdAt).toLocaleString("ko-kr")}
+
+                div.video-column-profile
+                    div.video-column-avatar
+                        if !video.owner.avatarUrl
+                            p.avatar-img.no-img
+                            
+                        else
+                            if video.owner.avatarUrl[0]==="h"
+                                img(src=video.owner.avatarUrl, crossorigin).avatar-img
+                            else
+                                img(src="/" + video.owner.avatarUrl, crossorigin).avatar-img
+                                
+                    span.video-column-user #{video.owner.name}
+                        

@@ -2,16 +2,15 @@ extends ../base.pug
 
 block content
   main.row.basic-form-container
+    if errorMessage
+      div.message.error
+        span=errorMessage
     
     form(method="POST").basic-form.login-form
       legend
         span 
           span.eng #{siteName}
         | 로그인
-      
-      if errorMessage
-      div.message.error
-        span=errorMessage
 
       fieldset
         div.basic-form-info
@@ -31,4 +30,4 @@ block content
             span 아직 
               span.eng #{siteName}
               | 에 합류하지 않았나요?
-            a(href="/login").button-eff 합류하기
+            a(href="/join").button-eff 합류하기

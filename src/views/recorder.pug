@@ -1,0 +1,13 @@
+extends base
+
+block content 
+  main
+    section.recorder-container
+      video#preview
+    
+      div.recoder-btn
+        button#actionBtn.hover-link.eng Start Recording 
+        a(href="/videos/upload").button-eff.eng Video Upload 
+
+block scripts 
+  script(src="/static/js/recorder.js")

@@ -1,26 +1,43 @@
-extends ../base
+include ../partials/head
 include ../mixins/video.pug
 
-block content
+body.common#channel-wrap
+  include ../partials/cursor
+  //- include ../partials/loading
+  include ../partials/header
+
   main#channel
     section.user-infomation
-      h3 #{user.name}의 채널
-      div.profile__data
+      div.profile-img
         if !user.avatarUrl
-          p.avatar-img.no-img
+          div(style=`background-image:url(/profile-img.jpg)`)
             
         else
           if user.avatarUrl[0]==="h"
             div(style=`background-image:url(${user.avatarUrl})`)
           else
             div(style=`background-image:url(${"/" + user.avatarUrl})`)
-        a(href="/users/edit") 프로필 수정하러 가기
-      span #{user.word}
+        
+
+      div.profile-data
+        div.data-text
+          h4.eng #{siteName}
+          h3 #{user.name}의 채널
+          p #{user.word}
 
     //- 동영상 출력
     section.video-infomation
-      div.video-grid
-        each video in user.videos
-          +video(video)
-        else
-          span.empty__message No videos found
+      h3 #{user.name}
+        span.eng  upload video
+      each videoColumn in user.videos
+        +videoColumn(videoColumn)
+      else
+        div.not-found
+          img(src="/death_eaters.jpg", alt="죽음을 먹는 자")
+          span.eng Something Wrong.
+            br
+            | Someone used Deletrius.
+    
+
+script(src="/static/js/main.js")
+script(src="/static/js/cursor.js")

@@ -14,14 +14,18 @@
   transition-property: background, transform;
   transform-origin: 100% 100%;
   background-size: cover;
+  mix-blend-mode: difference;
 
   .link-wrap {
     display: none;
   }
+
   &.link-cursor {
     transform: scale(2);
-    mix-blend-mode: difference;
     background-color: $white;
+    position: absolute;
+    top: 40%;
+    left: 20%;
 
     .link-wrap {
       mix-blend-mode: normal !important;
@@ -37,42 +41,67 @@
 
       .cursor-rotate {
         display: block;
-        @extend %position;
+        position: absolute;
+        top: -6px;
+        left: -7px;
+        width: 70px;
+        height: 65px;
         border-color: $white;
+
+        &:last-child {
+          transform: scaleY(-1);
+        }
 
         span {
           text-transform: uppercase;
           position: absolute;
           color: $white;
+          font-size: 10px;
 
           &:nth-child(1) {
-            top: 28px;
-            left: -7px;
-            transform: rotate(-104deg);
+            top: 20px;
+            left: -2px;
+            transform: rotate(-88deg);
           }
           &:nth-child(2) {
-            left: 11px;
-            top: -8px;
-            transform: rotate(-25deg);
+            left: 8px;
+            top: 1px;
+            transform: rotate(-41deg);
           }
           &:nth-child(3) {
-            left: 52px;
-            top: 0px;
-            transform: rotate(52deg);
+            left: 27px;
+            top: -7px;
+            transform: rotate(-2deg);
           }
           &:nth-child(4) {
-            left: 57px;
-            top: 39px;
-            transform: rotate(111deg);
+            left: 51px;
+            top: 2px;
+            transform: rotate(40deg);
           }
           &:nth-child(5) {
-            left: 20px;
-            bottom: 64px;
-            transform: rotate(200deg);
+            left: 62px;
+            bottom: 36px;
+            transform: rotate(72deg);
           }
         }
       }
     }
+  }
+}
+
+//
+// .not-found
+//
+.not-found {
+  img {
+    border-radius: 30px;
+    width: 50%;
+  }
+  span {
+    display: block;
+    padding: 2rem 0;
+    font-size: 18px;
+    line-height: 30px;
   }
 }
 
@@ -198,6 +227,18 @@ footer {
   &.error {
     background-color: $mainColor;
     color: white;
+  }
+}
+
+.video-container {
+  .search-ttl {
+    text-align: center;
+  }
+}
+
+@include noteBook {
+  main {
+    padding: 150px 2rem 2rem;
   }
 }
 

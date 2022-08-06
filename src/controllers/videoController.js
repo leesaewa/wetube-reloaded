@@ -119,11 +119,11 @@ export const postUpload = async (req, res) => {
 };
 
 //
-// recoder
+// recorder
 //
 
-export const recoder = (req, res) => {
-  return res.render("recoder", { pageTitle: "Recoder" });
+export const recorder = (req, res) => {
+  return res.render("recorder", { pageTitle: "Video Recorder" });
 };
 
 //

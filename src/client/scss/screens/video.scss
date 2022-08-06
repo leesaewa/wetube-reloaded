@@ -1,51 +1,206 @@
 #watch {
-  @include flexBox($flexAC: flex-start);
-}
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 2fr 1fr;
 
-.uploader-wrap {
+  .uploader-wrap {
+    padding: 3rem 0;
+    text-align: left;
+
+    .upload-title {
+      .hashtag {
+        @include flexBox($flexJC: flex-start);
+
+        li {
+          margin-right: 10px;
+          color: rgb(57, 55, 226);
+        }
+      }
+
+      h2 {
+        font-size: 2em;
+        font-weight: bold;
+        padding: 1rem 0;
+        color: $mainColor;
+      }
+    }
+
+    .upload-info {
+      @include flexBox($flexJC: flex-start);
+      border-bottom: 1px solid $black;
+      padding-bottom: 2rem;
+
+      p {
+        @include flexBox();
+
+        .material-icons {
+          margin-right: 5px;
+        }
+
+        &:last-child {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .description {
+      padding: 2rem 0;
+      font-size: 1.2em;
+    }
+
+    .uploader-info {
+      @include flexBox($flexJC: space-between);
+      border-top: 1px solid $black;
+      padding: 2rem 0;
+
+      a {
+        @include flexBox($flexJC: flex-start);
+
+        .user-avatar {
+          .avatar-img {
+            width: 72px;
+            height: 72px;
+          }
+        }
+
+        .user-meta {
+          display: block;
+          font-weight: bold;
+          font-size: 2em;
+          text-align: left;
+          margin-bottom: 10px;
+          margin-left: 10px;
+        }
+      }
+
+      p {
+      }
+
+      .edit-btn {
+        @include flexBox($flexJC: space-between);
+        text-align: center;
+
+        a {
+          border-radius: 20px;
+          padding: 1rem 2rem;
+          background-color: $realBlack;
+          color: $white;
+
+          &:last-child {
+            margin-left: 10px;
+            background-color: $mainColor;
+          }
+          &:hover {
+            background-color: $black;
+          }
+        }
+      }
+    }
+  }
 }
 
 //
 // comment
 //
 .comment-container {
-  border: 1px solid red;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: $black;
+  padding: 2rem;
+  position: relative;
+  color: $white;
 
-  .comment-write-container {
-    border: 1px solid blue;
+  h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: left;
+    font-size: 1.2em;
+    padding-bottom: 2rem;
+    letter-spacing: 2px;
   }
 
-  // 출력
+  // output
   .comment-output-container {
-    border: 1px solid blue;
+    overflow-y: scroll;
+    height: 84%;
 
     .comment-output-inner {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       text-align: left;
+      position: relative;
+      padding: 1rem 0;
 
       a {
         display: inline-block;
+        color: $white;
 
         .comment-avatar {
           @include flexBox($flexJC: flex-start);
 
           .profile-image {
-            border: 1px solid red;
-            margin-right: 5px;
+            margin-right: 10px;
           }
         }
         .comment-info {
           text-align: left;
+
           p {
+            font-size: 18px;
           }
           .comment-date {
+            opacity: 0.7;
+            font-size: 14px;
           }
         }
       }
-    }
-
-    .comment-cont {
-      border: 1px solid red;
+      .comment-cont {
+        font-size: 1em;
+        color: rgba(255, 255, 255, 0.6);
+        padding-top: 1rem;
+      }
       .delete-comment {
+        position: absolute;
+        right: 14px;
+        top: 14px;
+      }
+    }
+  }
+
+  // comment write
+  .comment-write-container {
+    border-radius: 50px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 97%;
+
+    .video-comment-form {
+      width: 100%;
+      @include flexBox();
+      background-color: $mainColor;
+      position: relative;
+
+      textarea {
+        background-color: $mainColor;
+        color: $white;
+        width: 100%;
+        height: 60px;
+
+        &::placeholder {
+          color: $lightGray;
+        }
+      }
+      button {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $white;
+        border-radius: 50%;
+        width: 54px;
+        height: 54px;
+        border: 0;
+        color: $mainColor;
       }
     }
   }
@@ -141,16 +296,103 @@
   }
 }
 
-//
-//
-// comment
-//
-.comment-output-inner {
-  border: 1px solid red;
+.video-column {
+  padding: 2rem;
+  background-color: $black;
+  color: $white;
+  margin-bottom: 2rem;
+  border-radius: 3rem;
 
-  // delete
-  .delete-comment {
-    cursor: pointer;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 22px rgba(130, 6, 6, 0.8);
+  }
+
+  figure {
+    @include flexBox;
+
+    .video-column-thumb {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 40%;
+      height: 200px;
+      border-radius: 30px;
+    }
+
+    figcaption {
+      width: 60%;
+      text-align: left;
+      margin-left: 2rem;
+
+      .video-column-data {
+        h2 {
+          font-size: 2em;
+          font-weight: bold;
+        }
+        .video-column-meta {
+          @include flexBox($flexJC: flex-start);
+          margin: 1.4rem 0;
+          opacity: 0.7;
+
+          p {
+            @include flexBox();
+
+            &:last-child {
+              margin-left: 30px;
+            }
+
+            .material-icons {
+              display: inline-block;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .video-column-profile {
+        @include flexBox($flexJC: flex-start);
+
+        .video-column-avatar {
+          margin-right: 10px;
+        }
+        .video-column-user {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+//
+// recorder
+//
+.recorder-container {
+  #preview {
+    border-radius: 30px;
+    overflow: hidden;
+    width: 50%;
+  }
+
+  .recoder-btn {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+
+    #actionBtn {
+      border: 0;
+      background-color: $black;
+      color: $white;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-size: 1.2em;
+      width: 100%;
+    }
+
+    a {
+      width: 100%;
+      margin: 2rem auto;
+    }
   }
 }
 
@@ -160,14 +402,100 @@
 //
 //
 
+@include noteBook {
+  #watch {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 @include tablet {
+  .recorder-container {
+    padding: 0 2rem;
+    #preview {
+      width: 100%;
+    }
+    .recoder-btn {
+      width: 100%;
+    }
+  }
 }
 
 @include smallTablet {
+  #watch {
+    gap: 0;
+    grid-template-columns: 1fr;
+
+    .uploader-wrap {
+      .upload-info {
+        flex-wrap: wrap;
+
+        p {
+          justify-content: flex-start;
+          width: 100%;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+
+      .uploader-info {
+        flex-wrap: wrap;
+
+        .uploader-link {
+          margin-bottom: 10px;
+        }
+
+        .edit-btn {
+          flex-wrap: wrap;
+
+          a {
+            width: 100%;
+
+            &:last-child {
+              margin-left: 0;
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @include mobile {
   .video-mixin {
     margin-bottom: 30px;
+  }
+
+  //
+  //
+  //
+  .video-column {
+    figure {
+      flex-wrap: wrap;
+
+      .video-column-thumb {
+        width: 100%;
+      }
+
+      figcaption {
+        width: 100%;
+        margin: 2rem 0 0;
+
+        .video-column-data {
+          .video-column-meta {
+            flex-wrap: wrap;
+
+            p {
+              &:last-child {
+                margin-left: 0;
+                margin-top: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

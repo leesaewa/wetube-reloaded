@@ -39,7 +39,7 @@ export const postJoin = async (req, res) => {
       password,
       location,
       word,
-      avatarUrl: file ? file.path : avatarUrl,
+      avatarUrl: file ? User.changePathFormula(file.path) : avatarUrl,
     });
     return res.redirect("/login");
   } catch (error) {
@@ -225,10 +225,9 @@ export const postEdit = async (req, res) => {
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.path : avatarUrl,
+      avatarUrl: file ? User.changePathFormula(file.path) : avatarUrl,
       name,
       email,
-
       location,
       word,
     },

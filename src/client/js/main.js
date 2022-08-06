@@ -35,25 +35,25 @@ document.onscroll = function () {
 // nav
 const loginBtn = document.querySelector(".login");
 const dropMenuCont = document.querySelector(".drop-menu");
-// const overlay = document.querySelector(".overlay");
+const overlay = document.querySelector(".overlay");
 
 if (loginBtn) {
   loginBtn.addEventListener("click", () => {
     dropMenuCont.classList.toggle("open");
     loginBtn.classList.toggle("open");
-    // overlay.classList.toggle("open");
+    overlay.classList.toggle("open");
     body.style.overflow = "hidden";
     if (!loginBtn.classList.contains("open")) {
       body.style.overflowY = "auto";
     }
   });
 }
-// overlay.addEventListener("click", () => {
-//   dropMenuCont.classList.remove("open");
-//   loginBtn.classList.remove("open");
-//   overlay.classList.remove("open");
-//   body.style.overflowY = "auto";
-// });
+overlay.addEventListener("click", () => {
+  dropMenuCont.classList.remove("open");
+  loginBtn.classList.remove("open");
+  overlay.classList.remove("open");
+  body.style.overflowY = "auto";
+});
 
 //
 // file preview
@@ -94,7 +94,7 @@ if (thumbInput) {
 }
 
 //
-// init our variables
+// input file change
 const fileInput = document.querySelector(".input-file");
 const labelBtn = document.querySelector(".input-file-trigger");
 const previewReturn = document.querySelector(".file-return");

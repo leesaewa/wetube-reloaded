@@ -4,7 +4,8 @@ block content
   main
     section.row.basic-form-container
       if errorMessage
-        span=errorMessage
+        div.message.error
+          span=errorMessage
 
       form(method="POST", enctype="multipart/form-data").basic-form.upload-form
         legend
@@ -42,5 +43,8 @@ block content
               input(placeholder="영상에 들어갈 해쉬태그를 콤마(,)로 구분해서 입력해주세요.", required, type="text", name="hashtags", id="hashtag")
               
             input(type="submit", value="비디오 업로드").hover-link
+
+            div.profile-password
+              a(href="/videos/recorder").button-eff.eng Video Record
 
 block scripts 

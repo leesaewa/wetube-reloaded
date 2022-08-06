@@ -4,7 +4,8 @@ block content
   main
     section.row.basic-form-container
       if errorMessage
-        span=errorMessage
+        div.message.error
+          span=errorMessage
 
 
       form(method="POST", enctype="multipart/form-data").basic-form.profile-form
@@ -15,9 +16,9 @@ block content
             span.eng Profile
         fieldset 
           div.profile-avatar
-            p.user-avatar
+            div.user-avatar
               if !loggedInUser.avatarUrl
-                p.avatar-img.no-img
+                img(src="/noimg.jpg", alt="").avatar-img#images
                   
               else
                 if loggedInUser.avatarUrl[0]==="h"
@@ -49,7 +50,7 @@ block content
 
             div.input-inner
               label(for="word") 소개글
-              input(name="word", id="word", type="text", required, placeholder="소개글", value=loggedInUser.word)
+              textarea(name="word", id="word", required, placeholder="200자까지 입력할 수 있어요.", maxlength="200") #{loggedInUser.word}
 
             input(type="submit" value="수정하기").hover-link
 

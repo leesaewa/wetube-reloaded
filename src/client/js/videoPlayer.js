@@ -101,7 +101,7 @@ const handleVolumeChange = (event) => {
 // time
 //
 const formatTime = (seconds) =>
-  new Date(seconds * 1000).toISOString().substring(11, 19);
+  new Date(seconds * 1000).toISOString().substring(14, 19);
 
 const handleLoadedMetadata = () => {
   totalTime.innerText = formatTime(Math.floor(video.duration));
@@ -138,10 +138,7 @@ const handleFullscreen = () => {
 
 //
 // mouse
-// 기본 로직
-// 1. 마우스를 움직이게 되면 기존 setTimeout이 clearTimeout에 의해 지워지고, 새로운 setTimeout이 생성되고, 실행되게 된다.
-// 2. 그 상태에서 마우스를 움직이지 않으면 새로운 setTimeout이 3초 후에 실행되게 되서 비디오 컨트롤바를 숨긴다.
-// 3. 움직이게 되면 다시 위의 1번처럼 기존 setTimeout은 clearTimeout에 의해 지워지고, 새로운 setTimeout이 생성된다.
+//
 const hideControls = () => videoControls.classList.remove("showing");
 
 const handleMouseMove = () => {

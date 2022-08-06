@@ -37,6 +37,7 @@
         position: relative;
         background-color: $black;
         width: 100%;
+        height: 300px;
         overflow: hidden;
         border-radius: 100%;
 
@@ -45,6 +46,15 @@
           height: 300px;
           object-fit: cover;
           @include flexBox();
+        }
+
+        .no-img {
+          width: 100%;
+          height: 100%;
+
+          &::before {
+            font-size: 2em;
+          }
         }
       }
     }

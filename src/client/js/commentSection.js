@@ -68,7 +68,7 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
 
   const deleteBtn = document.createElement("span");
   deleteBtn.innerText = "close";
-  deleteBtn.className = "delete-comment material-icons";
+  deleteBtn.className = "delete-comment material-icons hover-link";
   deleteBtn.addEventListener("click", handleDelete);
   newComment.appendChild(deleteBtn);
 
@@ -112,7 +112,6 @@ const handleSubmit = async (event) => {
       owner,
       createdAt
     );
-    console.log(createdAt);
   }
 };
 
@@ -128,7 +127,6 @@ const handleDelete = async (event) => {
     method: "DELETE",
   });
 
-  console.log("통과");
   if (response.status === 200) {
     console.log("delete");
     commentCont.remove();
