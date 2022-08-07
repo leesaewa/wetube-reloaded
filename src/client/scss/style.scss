@@ -1,22 +1,22 @@
 // Config
-@import "./config/_variables";
-@import "./config/_reset.scss";
-@import "./config/_mixin.scss";
+@import "config/_variables";
+@import "config/_reset.scss";
+@import "config/_mixin.scss";
 
 // Components
-@import "./Components/common.scss";
-@import "./Components/header.scss";
-@import "./Components/videoPlayer.scss";
-@import "./Components/animation.scss";
-@import "./Components/loading.scss";
+@import "Components/common.scss";
+@import "Components/header.scss";
+@import "Components/videoPlayer.scss";
+@import "Components/animation.scss";
+@import "Components/loading.scss";
 
 // Screen
-@import "./screens/video.scss";
-@import "./screens/main.scss";
-@import "./screens/404.scss";
-@import "./screens/form.scss";
-@import "./screens/home.scss";
-@import "./screens/channel.scss";
+@import "screens/video.scss";
+@import "screens/main.scss";
+@import "screens/404.scss";
+@import "screens/form.scss";
+@import "screens/home.scss";
+@import "screens/channel.scss";
 
 //
 // font
