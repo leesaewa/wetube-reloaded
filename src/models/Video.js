@@ -31,9 +31,9 @@ videoSchema.static("formatHashtags", function (hashtags) {
     .map((word) => (word.startsWith("#") ? word : `#${word}`));
 });
 
-videoSchema.static("changePathFormula", (urlPath) => {
-  return urlPath.replace(/\\/g, "/");
-});
+// videoSchema.static("changePathFormula", (urlPath) => {
+//   return urlPath.replace(/\\/g, "/");
+// });
 
 const Video = mongoose.model("Video", videoSchema);
 

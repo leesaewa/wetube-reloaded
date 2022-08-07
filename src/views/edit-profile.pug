@@ -21,10 +21,7 @@ block content
                 img(src="/noimg.jpg", alt="").avatar-img#images
                   
               else
-                if loggedInUser.avatarUrl[0]==="h"
-                  img(src=loggedInUser.avatarUrl, crossorigin).avatar-img#images
-                else
-                  img(src="/" + loggedInUser.avatarUrl, crossorigin).avatar-img#images
+                img(src=loggedInUser.avatarUrl, crossorigin).avatar-img#images
 
             p.avatar-edit
               label(for="avatar").material-icons.hover-link settings

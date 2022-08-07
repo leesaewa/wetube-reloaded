@@ -5,7 +5,7 @@ block content
   main.container#watch
     section.watch-container
       article#videoContainer(data-id=video._id)
-        video(src="/" + video.fileUrl)
+        video(src=video.fileUrl, crossorigin)
         div#videoControls.videoControls
           div.controls_time
             input(type="range", step="1", value=0, min="0")#timeLine

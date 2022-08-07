@@ -1,7 +1,7 @@
 mixin video(video)
     a(href=`/videos/${video.id}`).video-mixin
         figure
-            div.video-mixin-thumb(style=`background-image:url(${"/" + video.thumbUrl})`)
+            div.video-mixin-thumb(style=`background-image:url(${video.thumbUrl})`, crossorigin)
 
             figcaption 
                 div.video-mixin-avatar
@@ -12,7 +12,7 @@ mixin video(video)
                         if video.owner.avatarUrl[0]==="h"
                             img(src=video.owner.avatarUrl, crossorigin).avatar-img
                         else
-                            img(src="/" + video.owner.avatarUrl, crossorigin).avatar-img
+                            img(src=video.owner.avatarUrl, crossorigin).avatar-img
 
                 div.video-mixin-data
                     span.video-mixin-user #{video.owner.name}

@@ -24,9 +24,9 @@ userSchema.pre("save", async function () {
   }
 });
 
-userSchema.static("changePathFormula", (urlPath) => {
-  return urlPath.replace(/\\/g, "/");
-});
+// userSchema.static("changePathFormula", (urlPath) => {
+//   return urlPath.replace(/\\/g, "/");
+// });
 
 const User = mongoose.model("User", userSchema);
 export default User;

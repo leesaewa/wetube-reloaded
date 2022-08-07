@@ -39,7 +39,7 @@ export const postJoin = async (req, res) => {
       password,
       location,
       word,
-      avatarUrl: file ? User.changePathFormula(file.path) : avatarUrl,
+      avatarUrl: file ? file.location : avatarUrl,
     });
     return res.redirect("/login");
   } catch (error) {
@@ -189,7 +189,7 @@ export const postEdit = async (req, res) => {
     body: { name, email, location, word },
     file,
   } = req;
-
+  console.log(file);
   //email 중복체크
   if (email !== findEmail) {
     const checkEmail = await User.findById({ email });
@@ -223,7 +223,7 @@ export const postEdit = async (req, res) => {
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? User.changePathFormula(file.path) : avatarUrl,
+      avatarUrl: file ? file.location : avatarUrl,
       name,
       email,
       location,

@@ -22,7 +22,10 @@ header
             p.avatar-img.no-img
             
           else
-            img(src=`${loggedInUser.socialOnly ? "":"/"}` + loggedInUser.avatarUrl, crossorigin).avatar-img
+            if loggedInUser.avatarUrl.includes("github")
+              img(src=loggedInUser.avatarUrl, crossorigin).avatar-img
+            else
+              img(src=loggedInUser.avatarUrl, crossorigin).avatar-img
 
           a(href="javascript:void(0)")
             span #{loggedInUser.name}
