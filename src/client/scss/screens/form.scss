@@ -257,13 +257,13 @@
   }
 }
 
-@include tablet {
-  .basic-form-container {
-    .basic-form {
-      padding: 2rem;
-    }
-  }
-}
+// @include tablet {
+//   .basic-form-container {
+//     .basic-form {
+//       padding: 2rem;
+//     }
+//   }
+// }
 @include mobile {
   .basic-form-container {
     .basic-form {

@@ -80,6 +80,18 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     filter: brightness(1.4);
+
+    .button-eff {
+      margin-top: 2rem;
+      border: 1px solid $white;
+      color: $white;
+      text-align: center;
+
+      &:hover {
+        background-color: $mainColor;
+        border: 1px solid $mainColor;
+      }
+    }
   }
 
   .da {

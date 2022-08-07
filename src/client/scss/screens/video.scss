@@ -177,14 +177,14 @@
 
     .video-comment-form {
       width: 100%;
-      @include flexBox();
+      @include flexBox($flexJC: flex-start);
       background-color: $mainColor;
       position: relative;
 
       textarea {
         background-color: $mainColor;
         color: $white;
-        width: 100%;
+        width: 90%;
         height: 60px;
 
         &::placeholder {

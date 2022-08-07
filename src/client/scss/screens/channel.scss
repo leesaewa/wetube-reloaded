@@ -50,7 +50,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      top: 60%;
+      top: 54%;
       left: 0;
       color: $white;
 
@@ -75,6 +75,11 @@
         h3 {
           font-size: 3.2em;
           padding: 2rem 0;
+        }
+        span {
+          display: inline-block;
+          margin-bottom: 2rem;
+          font-size: 1.4em;
         }
         p {
           line-height: 24px;
