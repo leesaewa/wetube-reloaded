@@ -3,7 +3,7 @@ include ../mixins/video.pug
 
 body.common#channel-wrap
   include ../partials/cursor
-  //- include ../partials/loading
+  include ../partials/loading
   include ../partials/header
 
   main#channel
@@ -13,10 +13,10 @@ body.common#channel-wrap
           div(style=`background-image:url(/profile-img.jpg)`)
             
         else
-          if user.avatarUrl[0]==="h"
+          if user.avatarUrl.includes("github")
             img(src=user.avatarUrl, crossorigin)
           else
-            div(style=`background-image:url(${user.avatarUrl})`)
+            img(src=user.avatarUrl, crossorigin)
         
 
       div.profile-data

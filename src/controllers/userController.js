@@ -31,6 +31,8 @@ export const postJoin = async (req, res) => {
     });
   }
 
+  const isHeroku = process.env.NODE_ENV === "production";
+
   try {
     await User.create({
       name,
@@ -39,7 +41,7 @@ export const postJoin = async (req, res) => {
       password,
       location,
       word,
-      avatarUrl: file ? file.location : avatarUrl,
+      avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
     });
     return res.redirect("/login");
   } catch (error) {
@@ -189,7 +191,7 @@ export const postEdit = async (req, res) => {
     body: { name, email, location, word },
     file,
   } = req;
-  console.log(file);
+
   //email 중복체크
   if (email !== findEmail) {
     const checkEmail = await User.findById({ email });
@@ -220,10 +222,12 @@ export const postEdit = async (req, res) => {
     });
   }
 
+  const isHeroku = process.env.NODE_ENV === "production";
+
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.location : avatarUrl,
+      avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
       name,
       email,
       location,

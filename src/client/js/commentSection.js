@@ -32,13 +32,13 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
     img.className = avatarClass;
     img.crossOrigin = true;
     profileDiv.appendChild(img);
-    img.src = "/" + avatar;
+    img.src = avatar;
   } else if (socialCheck === true && avatar) {
     const img = document.createElement("img");
     img.className = avatarClass;
     img.crossOrigin = true;
     profileDiv.appendChild(img);
-    img.src = "" + avatar;
+    img.src = avatar;
   } else if (!avatar && socialCheck === false) {
     const noImg = document.createElement("p");
     noImg.className = avatarClass + " no-img";

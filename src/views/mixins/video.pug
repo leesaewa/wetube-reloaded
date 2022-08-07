@@ -1,7 +1,8 @@
 mixin video(video)
     a(href=`/videos/${video.id}`).video-mixin
         figure
-            div.video-mixin-thumb(style=`background-image:url(${video.thumbUrl})`, crossorigin)
+            div.video-mixin-thumb
+                img(src=video.thumbUrl, crossorigin)
 
             figcaption 
                 div.video-mixin-avatar
@@ -9,7 +10,7 @@ mixin video(video)
                         p.avatar-img.no-img
                         
                     else
-                        if video.owner.avatarUrl[0]==="h"
+                        if video.owner.avatarUrl.includes("github")
                             img(src=video.owner.avatarUrl, crossorigin).avatar-img
                         else
                             img(src=video.owner.avatarUrl, crossorigin).avatar-img
@@ -27,7 +28,8 @@ mixin video(video)
 mixin videoColumn(video)
     a(href=`/videos/${video.id}`).video-column
         figure
-            div.video-column-thumb(style=`background-image:url(${"/" + video.thumbUrl})`)
+            div.video-column-thumb
+                img(src=video.thumbUrl, crossorigin)
 
             figcaption
                 div.video-column-data
@@ -47,10 +49,10 @@ mixin videoColumn(video)
                             p.avatar-img.no-img
                             
                         else
-                            if video.owner.avatarUrl[0]==="h"
+                            if video.owner.avatarUrl.includes("github")
                                 img(src=video.owner.avatarUrl, crossorigin).avatar-img
                             else
-                                img(src="/" + video.owner.avatarUrl, crossorigin).avatar-img
+                                img(src=video.owner.avatarUrl, crossorigin).avatar-img
                                 
                     span.video-column-user #{video.owner.name}
                         

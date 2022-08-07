@@ -21,7 +21,10 @@ block content
                 img(src="/noimg.jpg", alt="").avatar-img#images
                   
               else
-                img(src=loggedInUser.avatarUrl, crossorigin).avatar-img#images
+                if !isHeroku.avatarUrl
+                  img(src="/" + loggedInUser.avatarUrl, crossorigin).avatar-img#images
+                else
+                  img(src=loggedInUser.avatarUrl, crossorigin).avatar-img#images
 
             p.avatar-edit
               label(for="avatar").material-icons.hover-link settings

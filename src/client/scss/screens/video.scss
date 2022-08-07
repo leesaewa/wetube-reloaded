@@ -46,6 +46,7 @@
     .description {
       padding: 2rem 0;
       font-size: 1.2em;
+      word-break: break-all;
     }
 
     .uploader-info {
@@ -209,6 +210,14 @@
 //
 // video mixins
 //
+%videoImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
 
 .video-mixin {
   transition: $easeFive;
@@ -222,12 +231,14 @@
     overflow: hidden;
 
     .video-mixin-thumb {
-      background-color: $white;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
       width: 100%;
       height: 240px;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        @extend %videoImg;
+      }
     }
 
     figcaption {
@@ -312,12 +323,15 @@
     @include flexBox;
 
     .video-column-thumb {
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
       width: 40%;
       height: 200px;
       border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        @extend %videoImg;
+      }
     }
 
     figcaption {
