@@ -13,10 +13,10 @@ body.common#channel-wrap
           div(style=`background-image:url(/profile-img.jpg)`)
             
         else
-          if user.avatarUrl.includes("github")
+          if user.avatarUrl[0]==="h"
             img(src=user.avatarUrl, crossorigin)
           else
-            img(src=user.avatarUrl, crossorigin)
+            img(src="/" + user.avatarUrl, crossorigin)
         
 
       div.profile-data

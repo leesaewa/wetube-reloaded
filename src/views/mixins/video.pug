@@ -10,10 +10,10 @@ mixin video(video)
                         p.avatar-img.no-img
                         
                     else
-                        if video.owner.avatarUrl.includes("github")
+                        if video.owner.avatarUrl[0]==="h"
                             img(src=video.owner.avatarUrl, crossorigin).avatar-img
                         else
-                            img(src=video.owner.avatarUrl, crossorigin).avatar-img
+                            img(src="/" + video.owner.avatarUrl, crossorigin).avatar-img
 
                 div.video-mixin-data
                     span.video-mixin-user #{video.owner.name}
@@ -49,10 +49,10 @@ mixin videoColumn(video)
                             p.avatar-img.no-img
                             
                         else
-                            if video.owner.avatarUrl.includes("github")
+                            if video.owner.avatarUrl[0]==="h"
                                 img(src=video.owner.avatarUrl, crossorigin).avatar-img
                             else
-                                img(src=video.owner.avatarUrl, crossorigin).avatar-img
+                                img(src="/" + video.owner.avatarUrl, crossorigin).avatar-img
                                 
                     span.video-column-user #{video.owner.name}
                         
