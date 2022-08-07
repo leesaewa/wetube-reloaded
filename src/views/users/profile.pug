@@ -14,7 +14,7 @@ body.common#channel-wrap
             
         else
           if user.avatarUrl[0]==="h"
-            div(style=`background-image:url(${user.avatarUrl})`)
+            img(src=`background-image:url(${user.avatarUrl})`)
           else
             div(style=`background-image:url(${"/" + user.avatarUrl})`)
         
