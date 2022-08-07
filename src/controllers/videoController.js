@@ -208,7 +208,6 @@ export const createComment = async (req, res) => {
     socialCheck: user.socialOnly,
     createdAt: new Date(),
   });
-  console.log(req.session);
 
   ownerUser.comments.push(comment._id);
   video.comments.push(comment._id);

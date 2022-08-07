@@ -1,9 +1,9 @@
 include partials/head 
 
 body#error-body
+  include partials/cursor
 
   main.row
-    div.cursor
     h1=pageTitle
 
     div.text-box
@@ -21,6 +21,6 @@ body#error-body
         | 스네이프 교수님이 매우 기뻐합니다.
 
 
-    a(href="/") 마법의 장난 다시 시작
+    a(href="/").button-eff 마법의 장난 다시 시작
 
   script(src="/static/js/cursor.js")

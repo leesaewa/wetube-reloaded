@@ -119,16 +119,13 @@ const handleSubmit = async (event) => {
 
 const handleDelete = async (event) => {
   const commentCont = event.target.parentNode;
-  console.log(commentCont);
   const commentId = commentCont.dataset.id;
-  console.log(commentId);
 
   const response = await fetch(`/api/comments/${commentId}/delete`, {
     method: "DELETE",
   });
 
   if (response.status === 200) {
-    console.log("delete");
     commentCont.remove();
   }
 };

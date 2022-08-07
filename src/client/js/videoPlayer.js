@@ -160,7 +160,6 @@ const handleMouseLeave = () => {
 
 const handleEnded = async () => {
   const { id } = videoContainer.dataset;
-  console.log(id);
   await fetch(`/api/videos/${id}/view`, {
     method: "POST",
   });

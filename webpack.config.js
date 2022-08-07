@@ -13,8 +13,6 @@ module.exports = {
     cursor: BASE_JS + "cursor.js",
   },
   plugins: [new MiniCssExtractPlugin({ filename: "css/style.css" })],
-  watch: true,
-  mode: "development",
   output: {
     filename: "js/[name].js",
     path: path.resolve(__dirname, "assets"),

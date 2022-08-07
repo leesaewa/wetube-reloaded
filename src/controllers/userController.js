@@ -43,8 +43,6 @@ export const postJoin = async (req, res) => {
     });
     return res.redirect("/login");
   } catch (error) {
-    console.log("join err");
-    console.log(error);
     return res.status(400).render("users/join", {
       pageTitle: "Create Account",
       errorMessage: error._message,

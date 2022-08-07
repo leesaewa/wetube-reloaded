@@ -4,20 +4,20 @@ import "../scss/style.scss";
 //
 // loading
 
-// const loader = document.querySelector(".loading");
-// const body = document.querySelector("body");
+const loader = document.querySelector(".loading");
+const body = document.querySelector("body");
 
-// window.addEventListener("load", () => {
-//   body.style.overflow = "hidden"; //로딩 중 스크롤 방지
-//   setTimeout(() => {
-//     //로딩속도 구현
-//     loader.style.opacity = "0";
-//     body.style.overflowY = "auto"; //스크롤 방지 해제
-//     setTimeout(() => {
-//       loader.style.display = "none";
-//     }, 400);
-//   }, 2000);
-// });
+window.addEventListener("load", () => {
+  body.style.overflow = "hidden"; //로딩 중 스크롤 방지
+  setTimeout(() => {
+    //로딩속도 구현
+    loader.style.opacity = "0";
+    body.style.overflowY = "auto"; //스크롤 방지 해제
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 400);
+  }, 1500);
+});
 
 //header
 let headerScroll = document.querySelector("header");
