@@ -4,11 +4,11 @@
 @import "./config/_mixin.scss";
 
 // Components
-@import "./Components/common.scss";
-@import "./Components/header.scss";
-@import "./Components/videoPlayer.scss";
-@import "./Components/animation.scss";
-@import "./Components/loading.scss";
+@import "./components/common.scss";
+@import "./components/header.scss";
+@import "./components/videoPlayer.scss";
+@import "./components/animation.scss";
+@import "./components/loading.scss";
 
 // Screen
 @import "./screens/video.scss";
