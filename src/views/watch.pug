@@ -38,7 +38,7 @@ block content
             span #{video.meta.views} views
           p
             span.material-icons schedule
-            span #{new Date(video.createdAt).toLocaleString("ko-kr")}
+            span #{video.createdAt.toLocaleString("ko-kr")}
 
         div.description
           p #{video.description}
@@ -88,7 +88,7 @@ block content
 
                 div.comment-info
                   p #{comment.ownerName}
-                  span.comment-date #{comment.createdAt.getFullYear()}년 #{comment.createdAt.getMonth() + 1}월 #{comment.createdAt.getDate()}일 #{comment.createdAt.getHours()}시 #{comment.createdAt.getMinutes()}분 #{comment.createdAt.getSeconds()}초
+                  span.comment-date #{new Date(comment.createdAt).toLocaleString("ko-kr")}
 
             p.comment-cont #{comment.text}
             if String(comment.owner) === String(loggedInUser._id)
