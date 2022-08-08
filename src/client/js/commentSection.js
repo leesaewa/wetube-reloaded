@@ -55,9 +55,7 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
   const dateNew = new Date(createdAt);
   createDate.innerText = `${dateNew.getFullYear()}년 ${
     dateNew.getMonth() + 1
-  }월 ${dateNew.getDate()}일 ${
-    dateNew.getHours() + 9
-  }시 ${dateNew.getMinutes()}분 ${dateNew.getSeconds()}초`;
+  }월 ${dateNew.getDate()}일 ${dateNew.getHours()}시 ${dateNew.getMinutes()}분 ${dateNew.getSeconds()}초`;
 
   infoDiv.appendChild(createDate);
 
