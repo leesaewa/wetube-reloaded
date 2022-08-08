@@ -38,7 +38,7 @@ block content
             span #{video.meta.views} views
           p
             span.material-icons schedule
-            span.comment-date #{comment.createdAt.getFullYear()}년 #{comment.createdAt.getMonth() + 1}월 #{comment.createdAt.getDate()}일 #{comment.createdAt.getHours() + 9}시 #{comment.createdAt.getMinutes()}분 #{comment.createdAt.getSeconds()}초
+            span.comment-date #{video.createdAt.getFullYear()}년 #{video.createdAt.getMonth() + 1}월 #{video.createdAt.getDate()}일 #{video.createdAt.getHours() + 9}시 #{video.createdAt.getMinutes()}분 #{video.createdAt.getSeconds()}초
 
         div.description
           p #{video.description}
@@ -72,7 +72,7 @@ block content
       h2.eng COMMENT
 
       article.comment-output-container
-        each comment in video.comments.reverse()
+        each comment in video.comments
           div.comment-output-inner(data-id=comment._id)
             a(href=`/users/${comment.owner._id}`)
               div.comment-avatar

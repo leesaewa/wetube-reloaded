@@ -58,7 +58,7 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
 
   const userName = document.createElement("p");
   userName.innerText = name;
-  infoDiv.prepend(userName);
+  infoDiv.appendChild(userName);
 
   // comment content
   const commentCont = document.createElement("p");
@@ -72,7 +72,7 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
   deleteBtn.addEventListener("click", handleDelete);
   newComment.appendChild(deleteBtn);
 
-  videoComments.prepend(newComment);
+  videoComments.appendChild(newComment);
 };
 
 const handleSubmit = async (event) => {

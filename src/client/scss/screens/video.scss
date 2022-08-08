@@ -512,4 +512,11 @@
       }
     }
   }
+
+  .comment-container {
+    .comment-output-container {
+      overflow-y: auto;
+      height: auto;
+    }
+  }
 }
