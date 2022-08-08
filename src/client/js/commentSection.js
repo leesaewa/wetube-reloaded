@@ -52,7 +52,11 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
 
   const createDate = document.createElement("span");
   createDate.className = "comment-date";
-  createDate.innerText = new Date(createdAt).toLocaleString("ko-kr");
+  createDate.innerText = `${video.createdAt.getFullYear()}년 ${
+    video.createdAt.getMonth() + 1
+  }월 ${video.createdAt.getDate()}일 ${
+    video.createdAt.getHours() + 9
+  }시 ${video.createdAt.getMinutes()}분 ${video.createdAt.getSeconds()}초`;
 
   infoDiv.appendChild(createDate);
 
