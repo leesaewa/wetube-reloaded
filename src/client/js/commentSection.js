@@ -52,11 +52,12 @@ const addComment = (text, id, avatar, name, socialCheck, owner, createdAt) => {
 
   const createDate = document.createElement("span");
   createDate.className = "comment-date";
-  createDate.innerText = `${video.createdAt.getFullYear()}년 ${
-    video.createdAt.getMonth() + 1
-  }월 ${video.createdAt.getDate()}일 ${
-    video.createdAt.getHours() + 9
-  }시 ${video.createdAt.getMinutes()}분 ${video.createdAt.getSeconds()}초`;
+  const dateNew = new Date(createdAt);
+  createDate.innerText = `${dateNew.getFullYear()}년 ${
+    dateNew.getMonth() + 1
+  }월 ${dateNew.getDate()}일 ${
+    dateNew.getHours() + 9
+  }시 ${dateNew.getMinutes()}분 ${dateNew.getSeconds()}초`;
 
   infoDiv.appendChild(createDate);
 
