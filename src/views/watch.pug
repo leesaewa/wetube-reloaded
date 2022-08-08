@@ -38,7 +38,7 @@ block content
             span #{video.meta.views} views
           p
             span.material-icons schedule
-            //- span #{comment.createdAt.getFullYear()}년 #{comment.createdAt.getMonth() + 1}월 #{comment.createdAt.getDate()}일 #{comment.createdAt.getHours() - }시 #{comment.createdAt.getMinutes()}분 #{comment.createdAt.getSeconds()}초
+            span.comment-date #{comment.createdAt.getFullYear()}년 #{comment.createdAt.getMonth() + 1}월 #{comment.createdAt.getDate()}일 #{comment.createdAt.getHours() + 9}시 #{comment.createdAt.getMinutes()}분 #{comment.createdAt.getSeconds()}초
 
         div.description
           p #{video.description}
