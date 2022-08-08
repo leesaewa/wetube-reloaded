@@ -38,7 +38,7 @@ block content
             span #{video.meta.views} views
           p
             span.material-icons schedule
-            span #{video.createdAt.toLocaleString("ko-kr")}
+            span #{video.createdAt.toLocaleString("ko-KR", { timeZone: 'UTC' })}
 
         div.description
           p #{video.description}
