@@ -38,7 +38,7 @@ block content
             span #{video.meta.views} views
           p
             span.material-icons schedule
-            span #{video.createdAt.toLocaleString("ko-KR", { timeZone: 'UTC' })}
+            //- span #{comment.createdAt.getFullYear()}년 #{comment.createdAt.getMonth() + 1}월 #{comment.createdAt.getDate()}일 #{comment.createdAt.getHours() - }시 #{comment.createdAt.getMinutes()}분 #{comment.createdAt.getSeconds()}초
 
         div.description
           p #{video.description}
@@ -88,7 +88,7 @@ block content
 
                 div.comment-info
                   p #{comment.ownerName}
-                  span.comment-date #{new Date(comment.createdAt).toLocaleString("ko-kr")}
+                  span.comment-date #{comment.createdAt}
 
             p.comment-cont #{comment.text}
             if String(comment.owner) === String(loggedInUser._id)
@@ -112,3 +112,11 @@ block scripts
   if loggedIn
     script(src="/static/js/commentSection.js")
   script(type="text/javascript").
+    const curr = new Date();
+    const utc = 
+          curr.getTime() + 
+          (curr.getTimezoneOffset() * 60 * 1000);
+
+    // 3. UTC to KST (UTC + 9시간)
+    const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+    const createdAt = new Date(utc + (KR_TIME_DIFF));
