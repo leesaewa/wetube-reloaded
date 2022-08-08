@@ -513,6 +513,16 @@
     }
   }
 
+  #watch {
+    .uploader-wrap {
+      .upload-title {
+        .hashtag {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
   .comment-container {
     .comment-output-container {
       overflow-y: auto;
