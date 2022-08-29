@@ -1,9 +1,24 @@
-# Wetube Reloaded
+# Link
 
 <a href="https://github.com/leesaewa/wetube_TIL">Study log</a>
 
-
 <a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기</a>
+
+# Folder
+### client
+- front end js, css, sass, img
+
+### controllers
+### models
+- mongoDB
+
+### routers
+### views
+- pug template
+### db.js
+### init.js
+### middlewares.js
+### server.js
 
 ## Log
 
