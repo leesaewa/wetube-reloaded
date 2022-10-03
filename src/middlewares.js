@@ -24,6 +24,7 @@ const s3ImageUploader = multerS3({
 const s3VideoUploader = multerS3({
   s3: s3,
   bucket: "marautube/videos",
+  contentType: multerS3.AUTO_CONTENT_TYPE, // 자동을 콘텐츠 타입 세팅
   Condition: {
     StringEquals: {
       "s3:x-amz-acl": ["public-read"],

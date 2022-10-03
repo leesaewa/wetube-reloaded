@@ -6,6 +6,17 @@
 
 ---
 
+#### 221004 챌린지 끝난 후의 업데이트
+
+- 로딩 좀 더 빠르게 page loader를 `setTimeout`에서 `transitionend`로 바꿈.
+  - `transitionend`는 `CSS transition`이 완료되면 발생함.
+    `transition 속성`이 `제거`되거나 `display`가 `none`으로 설정된 경우와 같이 완료 전에 transition이 제거된 경우에는 이벤트가 생성되지 않음.
+- `textarea`로 폼을 작성하면 `줄바꿈`이 되지 않는 현상을 수정함.
+- `CSS`에 `white-spce:pre`를 줘서 `textarea`에 작성한대로 출력되도록 설정함.
+- `smartphone`에서 비디오가 재생되지 않는 현상이 발생.
+  - `VideoUploader` `middlewear`에서 `contentType`을 지정해줌.
+  - 확인 필요.
+
 #### 220807
 
 - heroku 배포중...ㅠㅠ 에러와의 싸움
