@@ -47,7 +47,7 @@
       padding: 2rem 0;
       font-size: 1.2em;
       word-break: break-all;
-      white-space: pre;
+      white-space: pre-line;
     }
 
     .uploader-info {
@@ -383,7 +383,7 @@
 // recorder
 //
 .recorder-container {
-  #preview {
+  #pre-lineview {
     border-radius: 30px;
     overflow: hidden;
     width: 50%;
@@ -426,7 +426,7 @@
 @include tablet {
   .recorder-container {
     padding: 0 2rem;
-    #preview {
+    #pre-lineview {
       width: 100%;
     }
     .recoder-btn {

@@ -5,19 +5,29 @@
 <a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기</a>
 
 # Folder
+
 ### client
+
 - front end js, css, sass, img
 
 ### controllers
+
 ### models
+
 - mongoDB
 
 ### routers
+
 ### views
+
 - pug template
+
 ### db.js
+
 ### init.js
+
 ### middlewares.js
+
 ### server.js
 
 # Log
@@ -28,7 +38,8 @@
   - `transitionend`는 `CSS transition`이 완료되면 발생함.
     `transition 속성`이 `제거`되거나 `display`가 `none`으로 설정된 경우와 같이 완료 전에 transition이 제거된 경우에는 이벤트가 생성되지 않음.
 - `textarea`로 폼을 작성하면 `줄바꿈`이 되지 않는 현상을 수정함.
-- `CSS`에 `white-spce:pre`를 줘서 `textarea`에 작성한대로 출력되도록 설정함.
+  - `CSS`에 ~~`white-spce:pre`~~를 줘서 `textarea`에 작성한대로 출력되도록 설정함.
+  - (221004 02:52수정) 자동 줄바꿈이 되지 않아서 `white-spce:pre-line`으로 수정.
 - `smartphone`에서 비디오가 재생되지 않는 현상이 발생.
   - `VideoUploader` `middlewear`에서 `contentType`을 지정해줌.
   - 확인 필요.
