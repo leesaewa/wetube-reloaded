@@ -1,10 +1,26 @@
-# Wetube Reloaded
+# Link
 
 <a href="https://github.com/leesaewa/wetube_TIL">Study log</a>
 
-## Log
+<a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기</a>
 
----
+# Folder
+### client
+- front end js, css, sass, img
+
+### controllers
+### models
+- mongoDB
+
+### routers
+### views
+- pug template
+### db.js
+### init.js
+### middlewares.js
+### server.js
+
+# Log
 
 #### 221004 챌린지 끝난 후의 업데이트
 
