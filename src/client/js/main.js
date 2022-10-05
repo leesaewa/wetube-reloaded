@@ -22,6 +22,24 @@ window.addEventListener("load", () => {
   //   }, 1500);
   // });
 
+  // dark mode
+  const darkTheme = document.querySelector(".theme-change a");
+  const darkIcon = darkTheme.querySelector("i");
+
+  darkTheme.addEventListener("click", () => {
+    let colorMode = localStorage.getItem("colorMode");
+
+    if (colorMode == "dark" && document.body.classList.contains("dark-mode")) {
+      document.body.classList.remove("dark-mode");
+      darkIcon.innerText = "dark_mode";
+      localStorage.setItem("colorMode", "light");
+    } else {
+      document.body.classList.add("dark-mode");
+      darkIcon.innerText = "light_mode";
+      localStorage.setItem("colorMode", "dark");
+    }
+  });
+
   //header
   let headerScroll = document.querySelector("header");
   let headerHeight = headerScroll.offsetHeight;

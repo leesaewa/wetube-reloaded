@@ -32,14 +32,29 @@
 
 # Log
 
-#### 221004 챌린지 끝난 후의 업데이트
+#### 221005~6
+
+- `Dark mode` 추가했지만 불완전함.
+
+  - 다크 모드 추가와 로딩 속도로 인한 자연스러운 배경 전환 효과를 위해 `background-image` 삭제.
+  - **(221006 문제점)**
+    1. 페이지 이동할 때마다 다크 모드 버튼이 풀림.
+    2. `localStorage`에 저장되게 했으나, 저장은 되는데 다크 모드 적용이 안됨.
+
+- 스마트폰 사이즈 > `footer bottom`에 `padding` 추가
+
+#### 221003~4 챌린지 끝난 후의 업데이트
 
 - 로딩 좀 더 빠르게 page loader를 `setTimeout`에서 `transitionend`로 바꿈.
+
   - `transitionend`는 `CSS transition`이 완료되면 발생함.
     `transition 속성`이 `제거`되거나 `display`가 `none`으로 설정된 경우와 같이 완료 전에 transition이 제거된 경우에는 이벤트가 생성되지 않음.
+
 - `textarea`로 폼을 작성하면 `줄바꿈`이 되지 않는 현상을 수정함.
-  - `CSS`에 ~~`white-spce:pre`~~를 줘서 `textarea`에 작성한대로 출력되도록 설정함.
-  - (221004 02:52수정) 자동 줄바꿈이 되지 않아서 `white-spce:pre-line`으로 수정.
+
+  - `CSS`에 ~~white-spce:pre~~를 줘서 `textarea`에 작성한대로 출력되도록 설정함.
+  - **(221004 02:52수정)** 자동 줄바꿈이 되지 않아서 `white-spce:pre-line`으로 수정.
+
 - `smartphone`에서 비디오가 재생되지 않는 현상이 발생.
   - `VideoUploader` `middlewear`에서 `contentType`을 지정해줌.
   - 확인 필요.

@@ -127,6 +127,15 @@ header {
             }
           }
         }
+
+        // dark mode icon
+        &.theme-change {
+          a {
+            i {
+              animation: rotateCircle 6s linear infinite;
+            }
+          }
+        }
       }
     }
 
@@ -245,7 +254,7 @@ header {
           &.search-icon {
             display: block;
           }
-          &.notifications {
+          &.theme-change {
             display: none;
           }
           &.login {

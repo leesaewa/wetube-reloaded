@@ -29,11 +29,8 @@ header
 
           a(href="javascript:void(0)")
             span #{loggedInUser.name}
-            i.material-icons expand_more
-            
-        li.notifications
-          a(href="javascript:void(0)")
-            i.material-icons notifications
+            i.material-icons expand_more 
+
       else
         li
           a(href="/join")
@@ -43,6 +40,10 @@ header
           a(href="/login")
             i.material-icons login
             span.eng Login
+      
+      li.theme-change
+          a(href="javascript:void(0)")
+            i.material-icons dark_mode
           
     ul.drop-menu
       li 

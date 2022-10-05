@@ -81,14 +81,60 @@ textarea::-webkit-scrollbar-thumb {
 html,
 body {
   font-family: "Hahmlet", serif;
-  background: url("/src/client/img/paper.jpg") repeat 0 0;
+  // background: url("/src/client/img/paper.jpg") repeat 0 0;
   color: $black;
   cursor: none !important;
   // overflow: auto;
 }
-.common {
-  overflow-x: hidden !important;
+
+body {
+  background-color: $bgColor;
+  transition: background-color 1s;
+
+  &.common {
+    overflow-x: hidden !important;
+  }
+
+  // dark mode
+  &.dark-mode {
+    background-color: $darkTheme;
+    color: $darkFontColor;
+
+    .basic-form-container {
+      .basic-form {
+        legend {
+          border-bottom: 1px solid $darkFontColor;
+        }
+      }
+    }
+
+    #watch {
+      .uploader-wrap {
+        .upload-info {
+          border-bottom: 1px solid $darkFontColor;
+        }
+        .uploader-info {
+          border-top: 1px solid $darkFontColor;
+          border-bottom: 1px solid $darkFontColor;
+
+          a {
+            color: $darkFontColor;
+          }
+        }
+      }
+    }
+
+    .button-eff {
+      border: 1px solid $darkTheme;
+      background-color: $darkFontColor;
+    }
+
+    footer {
+      border-top: 1px solid $darkFontColor;
+    }
+  }
 }
+
 a {
   color: $black;
   display: block;
