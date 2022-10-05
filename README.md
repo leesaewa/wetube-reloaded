@@ -4,45 +4,34 @@
 
 <a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기</a>
 
-# Folder
-
-### client
-
-- front end js, css, sass, img
-
-### controllers
-
-### models
-
-- mongoDB
-
-### routers
-
-### views
-
-- pug template
-
-### db.js
-
-### init.js
-
-### middlewares.js
-
-### server.js
-
 # Log
 
 #### 221005~6
 
+- 스마트폰 사이즈 > `footer bottom`에 `padding` 추가
+- 다크 모드 추가와 로딩 속도로 인한 자연스러운 배경 전환 효과를 위해 `background-image` 삭제.
+
 - `Dark mode` 추가했지만 불완전함.
 
-  - 다크 모드 추가와 로딩 속도로 인한 자연스러운 배경 전환 효과를 위해 `background-image` 삭제.
-  - **(221006 문제점)**
-    1. 페이지 이동할 때마다 다크 모드 버튼이 풀림.
-    2. `localStorage`에 저장되게 했으나, 저장은 되는데 다크 모드 적용이 안됨.
-    - 아이디 저장할 때처럼 `session` `cookie` 시도해보기
+  - ~~(221006 문제점)~~
 
-- 스마트폰 사이즈 > `footer bottom`에 `padding` 추가
+  1. ~~페이지 이동할 때마다 다크 모드 버튼이 풀림.~~
+  2. ~~localStorage에 저장되게 했으나, 저장은 되는데 다크 모드 적용이 안됨.~~
+
+  - ~~아이디 저장할 때처럼 session, cookie 시도해보기~~
+  - **221006 01:58 해결**
+    - `localStorage`에 대한 지식이 부족했음.
+    - 기본적으로 `문자형(string)` 데이터 타입만 지원함. 이를 해결하기 위해서는 `JSON` 형태로 데이터를 읽고 써야함.
+      ```
+      > localStorage.setItem('json', JSON.stringify({a: 1, b: 2}))
+      undefined
+      > JSON.parse(localStorage.getItem('json'))
+      {a: 1, b: 2}
+      ```
+  - **해결 방법**
+    - 다크 모드 기본 동작과 `localStorage` 저장을 `darkThemeClick` 함수를 만들어 따로 빼놓고, 윈도우가 로드될 때 실행되는 이벤트 안에 조건문으로 `localStorage`에 저장된 값을 가져오게 구성함.
+
+- **Mission** 스마트폰 -> 다크모드 버튼과 검색창이 출력되게 수정해야 함.
 
 #### 221003~4 챌린지 끝난 후의 업데이트
 

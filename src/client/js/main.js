@@ -23,22 +23,37 @@ window.addEventListener("load", () => {
   // });
 
   // dark mode
+
   const darkTheme = document.querySelector(".theme-change a");
   const darkIcon = darkTheme.querySelector("i");
 
-  darkTheme.addEventListener("click", () => {
-    let colorMode = localStorage.getItem("colorMode");
+  function darkThemeClick() {
+    darkTheme.addEventListener("click", function () {
+      if (document.body.classList.contains("dark-mode")) {
+        document.body.classList.remove("dark-mode");
+        darkIcon.innerText = "dark_mode";
+        localStorage.setItem("colorMode", "dark_mode");
+      } else {
+        document.body.classList.add("dark-mode");
+        darkIcon.innerText = "light_mode";
+        localStorage.setItem("colorMode", "light_mode");
+      }
+    });
+  }
 
-    if (colorMode == "dark" && document.body.classList.contains("dark-mode")) {
-      document.body.classList.remove("dark-mode");
-      darkIcon.innerText = "dark_mode";
-      localStorage.setItem("colorMode", "light");
-    } else {
-      document.body.classList.add("dark-mode");
-      darkIcon.innerText = "light_mode";
-      localStorage.setItem("colorMode", "dark");
-    }
-  });
+  darkThemeClick();
+
+  const colorMode = localStorage.getItem("colorMode"); // "colorMode" 아이템 값 불러오기
+
+  //만약 colorMode가 dark_mode(테마는 light)라면 아이콘을 dark_mode(달)로 바꿈.
+  if (colorMode === "dark_mode") {
+    document.body.classList.remove("dark-mode");
+    darkIcon.innerText = "dark_mode";
+  } else {
+    // colorMode가 light_mode(테마는 dark)라면 아이콘을 light_mode(해) 바꿈.
+    document.body.classList.add("dark-mode");
+    darkIcon.innerText = "light_mode";
+  }
 
   //header
   let headerScroll = document.querySelector("header");
