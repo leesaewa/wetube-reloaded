@@ -104,6 +104,9 @@ body {
       .www {
         .button-eff {
           background-color: transparent;
+          &:hover {
+            background-color: $mainColor;
+          }
         }
       }
     }

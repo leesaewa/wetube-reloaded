@@ -8,35 +8,22 @@ import "../scss/style.scss";
 const body = document.querySelector("body");
 
 window.addEventListener("load", () => {
-  document.body.classList.remove("before-load");
-
-  // window.addEventListener("load", () => {
-  //   body.style.overflow = "hidden"; //로딩 중 스크롤 방지
-  //   setTimeout(() => {
-  //     //로딩속도 구현
-  //     loader.style.opacity = "0";
-  //     body.style.overflowY = "auto"; //스크롤 방지 해제
-  //     setTimeout(() => {
-  //       loader.style.display = "none";
-  //     }, 400);
-  //   }, 1500);
-  // });
+  body.classList.remove("before-load");
 
   // dark mode
-
   const darkTheme = document.querySelector(".theme-change a");
   const darkIcon = darkTheme.querySelector("i");
 
   function darkThemeClick() {
     darkTheme.addEventListener("click", function () {
-      if (document.body.classList.contains("dark-mode")) {
-        document.body.classList.remove("dark-mode");
-        darkIcon.innerText = "dark_mode";
-        localStorage.setItem("colorMode", "dark_mode");
-      } else {
-        document.body.classList.add("dark-mode");
+      if (!body.classList.contains("dark-mode")) {
+        body.classList.add("dark-mode");
         darkIcon.innerText = "light_mode";
         localStorage.setItem("colorMode", "light_mode");
+      } else {
+        body.classList.remove("dark-mode");
+        darkIcon.innerText = "dark_mode";
+        localStorage.setItem("colorMode", "dark_mode");
       }
     });
   }
@@ -47,11 +34,11 @@ window.addEventListener("load", () => {
 
   //만약 colorMode가 dark_mode(테마는 light)라면 아이콘을 dark_mode(달)로 바꿈.
   if (colorMode === "dark_mode") {
-    document.body.classList.remove("dark-mode");
+    body.classList.remove("dark-mode");
     darkIcon.innerText = "dark_mode";
   } else {
     // colorMode가 light_mode(테마는 dark)라면 아이콘을 light_mode(해) 바꿈.
-    document.body.classList.add("dark-mode");
+    body.classList.add("dark-mode");
     darkIcon.innerText = "light_mode";
   }
 
@@ -147,6 +134,6 @@ window.addEventListener("load", () => {
   }
 
   document.querySelector(".loading").addEventListener("transitionend", (e) => {
-    document.body.removeChild(e.currentTarget);
+    body.removeChild(e.currentTarget);
   });
 });

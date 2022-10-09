@@ -2,8 +2,8 @@ include mixins/message
 include partials/head
 
 body.common.before-load
-  include partials/cursor
   include partials/loading
+  include partials/cursor
 
   if messages.error 
     +messages("error", messages.error)

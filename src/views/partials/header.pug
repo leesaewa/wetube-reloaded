@@ -1,14 +1,14 @@
+
+
 header 
   h1 
     a(href="/home") 
       img(src="/hogwarts.png", alt="호그와트 로고")
       span.eng #{siteName}
   
-  div.search-wrap
-    form(method="GET" action="/search")
-      input(placeholder="검색어를 입력하세요. ex)스네이프 재수없음, 해리포터 나대지마라", type="text", name="keyword")
-      input(type="submit", name="" value="Search now").hover-link.eng
-  
+  include search
+
+
   nav 
     ul.nav
       li.search-icon
