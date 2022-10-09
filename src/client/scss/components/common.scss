@@ -120,6 +120,13 @@ main,
 
 main {
   padding-top: 150px;
+
+  // search form
+  &.search-container {
+    .search-wrap {
+      display: none;
+    }
+  }
 }
 
 //
@@ -245,6 +252,13 @@ footer {
 @include smallTablet {
   main {
     padding-top: 4rem;
+
+    // search form
+    &.search-container {
+      .search-wrap {
+        display: block;
+      }
+    }
   }
 
   footer {

@@ -39,30 +39,6 @@ header {
     }
   }
 
-  .search-wrap {
-    form {
-      @include flexBox($flexAC: flex-start);
-
-      input[type="text"] {
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        width: 500px;
-      }
-
-      .hover-link {
-        background: $mainColor;
-        border: 1px solid $white;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        color: $white;
-
-        &:hover {
-          background-color: $realBlack;
-        }
-      }
-    }
-  }
-
   nav {
     position: relative;
     padding-right: 2rem;
@@ -178,6 +154,34 @@ header {
             background: $mainColor;
           }
         }
+      }
+    }
+  }
+}
+
+//
+// search form
+//
+
+.search-wrap {
+  form {
+    @include flexBox($flexAC: flex-start);
+
+    input[type="text"] {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      width: 500px;
+    }
+
+    .hover-link {
+      background: $mainColor;
+      border: 1px solid $white;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      color: $white;
+
+      &:hover {
+        background-color: $realBlack;
       }
     }
   }

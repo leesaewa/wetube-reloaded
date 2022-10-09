@@ -1,10 +1,10 @@
-extends base.pug
-include mixins/video.pug
+extends base
+include mixins/video
 
 block content
-  main
+  main.search-container
 
-
+    include partials/search
 
     section.video-container
       h2.search-ttl #{pageTitle}
