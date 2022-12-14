@@ -3,7 +3,8 @@
 <a href="https://github.com/leesaewa/wetube_TIL">Study log</a>
 
 <a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기</a>
-- 링크 이전 중. (221211~현재)
+- 헤로쿠 링크 살려둠 (221214)
+- ~~링크 이전 중. (221211~현재)~~
 
 # Log
 
