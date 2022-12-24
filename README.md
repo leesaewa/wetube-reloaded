@@ -5,7 +5,7 @@
 - `Harry Potter`の`Marauders Map`からモチーフを得て制作。
 - 普通じゃない魔法学校に通っているが、マローダーズはいたずらが好きな10代の学生たちだから教授たちが接続できない魔法をかけた秘密のコミュニティーサイトを作ったというコンセプト。
 
-# Preview (Last Updaate: 2022.10)
+# Preview (Last Update: 2022.10)
 ## PC
 <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau00.jpg">
 <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau01.jpg">
@@ -27,9 +27,9 @@
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/> <img src="https://img.shields.io/badge/Pug-A86454?style=flat-square&logo=Pug&logoColor=white"/>
 
 
-<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/> <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=Webpack&logoColor=black"/>
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/> <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=Webpack&logoColor=black"/> <img src="https://img.shields.io/badge/Babel-F9DC3E?style=flat-square&logo=Babel&logoColor=black"/> <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=flat-square&logo=Amazon AWS&logoColor=white"/>
 
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/> <img src="https://img.shields.io/badge/Heroku-#430098?style=flat-square&logo=Heroku&logoColor=white"/>
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/> <img src="https://img.shields.io/badge/Heroku-430098?style=flat-square&logo=Heroku&logoColor=white"/>
 
 ---
 
@@ -43,8 +43,11 @@
 ### <a href="https://leesaewa.github.io/design_portfolio/src/detail/project/pf_marautube.html#dark">Dark Mode</a>
 <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau06.jpg">
 
-### Join -> Profile Image Preview / Upload -> video&thumbnail Preview
-<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau04.jpg"> <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau08.jpg">
+### Join -> Profile Image Preview
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau04.jpg">
+
+### Upload -> video&thumbnail Preview
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau08.jpg">
 
 ### Login -> Menu Drop Down
 <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau07.jpg">
