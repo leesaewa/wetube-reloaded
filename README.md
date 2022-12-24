@@ -5,6 +5,13 @@
 - `Harry Potter`の`Marauders Map`からモチーフを得て制作。
 - 普通じゃない魔法学校に通っているが、マローダーズはいたずらが好きな10代の学生たちだから教授たちが接続できない魔法をかけた秘密のコミュニティーサイトを作ったというコンセプト。
 
+# Link
+<a href="https://github.com/leesaewa/wetube_TIL">Study Log</a>
+
+<a href="https://marautube.herokuapp.com/">heroku url / 결과물 보러가기 / 作品見に行く</a>
+- 헤로쿠 링크 살려둠 (221214)　Herokuリンク生かした
+- ~~링크 이전 중. (221211~현재)~~
+
 # Preview (Last Update: 2022.10)
 ## PC
 <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau00.jpg">
@@ -14,14 +21,6 @@
 
 ## SP
 <img src="https://user-images.githubusercontent.com/97646713/209444306-d65420f4-aaf7-49c1-931e-46f7540a21ae.JPG">
-
-# Link
-
-<a href="https://github.com/leesaewa/wetube_TIL">Study log</a>
-
-<a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기/作品見に行く</a>
-- 헤로쿠 링크 살려둠 (221214)　Herokuリンク生かした
-- ~~링크 이전 중. (221211~현재)~~
 
 # Tool
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/> <img src="https://img.shields.io/badge/Pug-A86454?style=flat-square&logo=Pug&logoColor=white"/>
