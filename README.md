@@ -1,10 +1,63 @@
+# MARAUTUBE
+- Youtube clone coding
+- `Harry Potter`의 `Marauders Map`에서 모티브를 얻어 제작함.
+- 평범하지 않은 마법학교를 다니고 있지만, 머로더즈는 장난치기 좋아하는 10대 학생들이기에 교수님들이 접속할 수 없는 마법을 건 비밀 커뮤니티 사이트를 만들었다는 컨셉.
+- `Harry Potter`の`Marauders Map`からモチーフを得て制作。
+- 普通じゃない魔法学校に通っているが、マローダーズはいたずらが好きな10代の学生たちだから教授たちが接続できない魔法をかけた秘密のコミュニティーサイトを作ったというコンセプト。
+
+# Preview (Last Updaate: 2022.10)
+## PC
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau00.jpg">
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau01.jpg">
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau02.jpg">
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau05.jpg">
+
+## SP
+<img src="https://user-images.githubusercontent.com/97646713/209444306-d65420f4-aaf7-49c1-931e-46f7540a21ae.JPG">
+
 # Link
 
 <a href="https://github.com/leesaewa/wetube_TIL">Study log</a>
 
-<a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기</a>
-- 헤로쿠 링크 살려둠 (221214)
+<a href="https://marautube.herokuapp.com/">heroku url/결과물 보러가기/作品見に行く</a>
+- 헤로쿠 링크 살려둠 (221214)　Herokuリンク生かした
 - ~~링크 이전 중. (221211~현재)~~
+
+# Tool
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/> <img src="https://img.shields.io/badge/Pug-A86454?style=flat-square&logo=Pug&logoColor=white"/>
+
+
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/> <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/> <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=Webpack&logoColor=black"/>
+
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/> <img src="https://img.shields.io/badge/Heroku-#430098?style=flat-square&logo=Heroku&logoColor=white"/>
+
+---
+
+# Added Function
+### <a href="https://leesaewa.github.io/design_portfolio/src/detail/project/pf_marautube.html#cursor">Mouse cursor custom</a>
+<img src="https://user-images.githubusercontent.com/97646713/209444372-422da2ad-235e-498d-b7f6-fc3dee7d2a3c.JPG">
+
+### <a href="https://leesaewa.github.io/design_portfolio/src/detail/project/pf_marautube.html#loading">Loading Animation</a>
+<img src="https://user-images.githubusercontent.com/97646713/209444404-0af395e5-a74e-4d1d-9ded-e9cc31e3696b.JPG">
+
+### <a href="https://leesaewa.github.io/design_portfolio/src/detail/project/pf_marautube.html#dark">Dark Mode</a>
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau06.jpg">
+
+### Join -> Profile Image Preview / Upload -> video&thumbnail Preview
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau04.jpg"> <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau08.jpg">
+
+### Login -> Menu Drop Down
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau07.jpg">
+
+### <a href="https://marautube.herokuapp.com/404">404 Error Page</a>
+<img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau10.jpg">
+
+---
+# Nomad Coder Challenge 16th
+<a href="https://nomadcoders.co/community/thread/5739">우수 졸업생 졸업작품 선정</a>
+<img src="https://user-images.githubusercontent.com/97646713/209444874-34d36fc3-003c-4a1c-a4c0-7c4e94779c9e.jpg">
+
+---
 
 # Log
 
