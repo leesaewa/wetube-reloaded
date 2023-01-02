@@ -5,6 +5,10 @@
 - `Harry Potter`の`Marauders Map`からモチーフを得て制作。
 - 普通じゃない魔法学校に通っているが、マローダーズはいたずらが好きな10代の学生たちだから教授たちが接続できない魔法をかけた秘密のコミュニティーサイトを作ったというコンセプト。
 
+# Awards
+- `2022 Nomad Coders Awards` Youtube Clone Coding Winner
+<img src="https://user-images.githubusercontent.com/97646713/210236134-7f8ee618-4b98-49d4-9319-3d73553c54e0.JPG">
+
 # Link
 <a href="https://github.com/leesaewa/wetube_TIL">Study Log</a>
 
@@ -55,7 +59,7 @@
 <img src="https://leesaewa.github.io/design_portfolio/src/img/portfolio/marau10.jpg">
 
 ---
-# Nomad Coder Challenge 16th
+# Nomad Coders Challenge 16th
 <a href="https://nomadcoders.co/community/thread/5739">우수 졸업생 졸업작품 선정</a>
 <img src="https://user-images.githubusercontent.com/97646713/209444874-34d36fc3-003c-4a1c-a4c0-7c4e94779c9e.jpg">
 
