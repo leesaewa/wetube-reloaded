@@ -13,7 +13,8 @@
 <a href="https://github.com/leesaewa/wetube_TIL">Study Log</a>
 
 <a href="https://marautube.herokuapp.com/">heroku url / 결과물 보러가기 / 作品見に行く</a>
-- 헤로쿠 링크 살려둠 (221214)　Herokuリンク生かした
+- `23.02.01`에 헤로쿠 링크 만료될 예정 -> 이전 준비 `23.02.01`にHerokuのリンクが終わる予定→移行の準備
+- ~~헤로쿠 링크 살려둠 (221214)　Herokuリンク生かした~~
 - ~~링크 이전 중. (221211~현재)~~
 
 # Preview (Last Update: 2022.10)
