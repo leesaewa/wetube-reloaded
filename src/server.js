@@ -14,6 +14,7 @@ import { localsMiddleware } from "./middlewares";
 const app = express(); //create express application
 const logger = morgan("dev");
 
+app.set("trust proxy", 1); // Render 등 프록시 환경에서 세션/쿠키 정상 작동
 app.set("view engine", "pug");
 //views 경로 바꾸기
 app.set("views", process.cwd() + "/src/views");
