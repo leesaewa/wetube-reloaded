@@ -41,7 +41,7 @@ export const postJoin = async (req, res) => {
       password,
       location,
       word,
-      avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
+      avatarUrl: file ? (isHeroku ? `${process.env.R2_PUBLIC_URL}/${file.key}` : file.path) : avatarUrl,
     });
     return res.redirect("/login");
   } catch (error) {
@@ -227,7 +227,7 @@ export const postEdit = async (req, res) => {
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
+      avatarUrl: file ? (isHeroku ? `${process.env.R2_PUBLIC_URL}/${file.key}` : file.path) : avatarUrl,
       name,
       email,
       location,
