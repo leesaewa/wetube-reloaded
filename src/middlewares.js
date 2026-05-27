@@ -7,28 +7,27 @@ const s3 = new aws.S3({
     accessKeyId: process.env.AWS_ID,
     secretAccessKey: process.env.AWS_SECRET,
   },
+  endpoint: process.env.R2_ENDPOINT,
+  region: "auto",
+  signatureVersion: "v4",
 });
 
 const isHeroku = process.env.NODE_ENV === "production";
 
 const s3ImageUploader = multerS3({
   s3: s3,
-  bucket: "marautube/images",
-  Condition: {
-    StringEquals: {
-      "s3:x-amz-acl": ["public-read"],
-    },
+  bucket: "marautube",
+  key: function (req, file, cb) {
+    cb(null, `images/${Date.now()}_${file.originalname}`);
   },
 });
 
 const s3VideoUploader = multerS3({
   s3: s3,
-  bucket: "marautube/videos",
-  contentType: multerS3.AUTO_CONTENT_TYPE, // 자동을 콘텐츠 타입 세팅
-  Condition: {
-    StringEquals: {
-      "s3:x-amz-acl": ["public-read"],
-    },
+  bucket: "marautube",
+  contentType: multerS3.AUTO_CONTENT_TYPE,
+  key: function (req, file, cb) {
+    cb(null, `videos/${Date.now()}_${file.originalname}`);
   },
 });
 
